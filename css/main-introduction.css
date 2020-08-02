@@ -1,0 +1,88 @@
+#introduction {
+  padding: 294px 0;
+  background: #f5f5f5;
+}
+#introduction div.program-info {
+  margin: 0 auto;
+  text-align: center;
+}
+#introduction div.program-info p.about {
+  padding-bottom: 10px;
+  font-size: 22px;
+  color: #222;
+  font-weight: 400;
+}
+#introduction div.program-info h2 {
+  font-size: 72px;
+  color: rgb(34, 34, 34);
+  line-height: 1.1;
+  margin-bottom: 28px;
+}
+#introduction div.program-info p.desc {
+  font-size: 21px;
+  color: #6c6c6c;
+  line-height: 30px;
+}
+#introduction div.program-info a.btnMore {
+  display: inline-block;
+  width: 170px;
+  height: 46px;
+  line-height: 42px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  font-size: 18px;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+  opacity: 1;
+  margin-top: 40px;
+  border: 1px solid rgb(34, 34, 34);
+}
+#introduction div.program-info a.btnMore:hover {
+  color: #fff;
+  border: 1px solid #f25130;
+  background: linear-gradient(to right, #ff8933 0, #ea2e2e 100%);
+}
+
+#introduction.rendered div.program-info p.about {
+  animation: fadeIn 0.4s linear 0s 1 normal forwards;
+}
+#introduction.rendered div.program-info h2 {
+  animation: fadeIn 0.4s linear 0.1s 1 normal forwards;
+}
+#introduction.rendered div.program-info p.desc {
+  animation: fadeIn 0.4s linear 0.2s 1 normal forwards;
+}
+#introduction.rendered div.program-info a.btnMore {
+  animation: fadeIn 0.4s linear 0.3s 1 normal forwards;
+}
+@media (max-width: 1440px) and (min-width: 1024px) {
+  #introduction div.program-info p.about {
+    font-size: 1.5vw;
+  }
+  #introduction div.program-info h2 {
+    font-size: 5vw;
+  }
+  #introduction div.program-info p.desc {
+    font-size: 1.4vw;
+    line-height: 1.5;
+  }
+  #introduction div.program-info a.btnMore {
+    padding: 0.75em 1.7em 0.75em;
+    font-size: 1.25vw;
+    width: auto;
+    height: auto;
+    line-height: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}

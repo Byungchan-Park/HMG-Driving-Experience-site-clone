@@ -1,0 +1,203 @@
+#footer {
+  background: #000000;
+  padding: 0 80px 50px;
+  position: relative;
+}
+#footer div.inner {
+  padding-top: 50px;
+}
+#footer div.inner ul.links {
+  overflow: hidden;
+}
+#footer div.inner ul.links li {
+  float: left;
+  position: relative;
+  font-size: 18px;
+}
+#footer div.inner ul.links li:first-child {
+  padding-right: 17px;
+}
+#footer div.inner ul.links li:nth-child(2) {
+  color: #ffffff;
+}
+#footer div.inner ul.links li + li {
+  padding: 0 17px;
+}
+#footer div.inner ul.links li:last-child {
+  padding-left: 17px;
+}
+#footer div.inner ul.links li:not(:last-child):before {
+  content: '';
+  width: 1px;
+  height: 20px;
+  background: #444444;
+  position: absolute;
+  right: 0;
+  bottom: 3px;
+}
+#footer div.inner ul.links li a {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+}
+#footer div.inner div.siteArea {
+  position: absolute;
+  right: 80px;
+  top: 62px;
+}
+#footer div.inner div.siteArea div.familyCont {
+  border: 1px solid #676767;
+}
+#footer div.inner div.siteArea div.familyCont div.formGroup {
+  float: left;
+  width: 220px;
+  height: 50px;
+
+  position: relative;
+}
+#footer div.inner div.siteArea div.familyCont div.formGroup #fmlsite {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 5px 15px;
+  line-height: 35px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  color: #fff;
+}
+#footer div.inner div.siteArea div.familyCont div.formGroup:after {
+  display: block;
+  content: '▼';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  background: none;
+}
+#footer div.inner div.siteArea div.familyCont a {
+  float: left;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #ffffff;
+  font-size: 18px;
+}
+#footer div.inner div.siteArea div.familyCont a:hover {
+  color: #fff;
+  background: linear-gradient(to right, #ff8933, #ea2e2e);
+}
+select {
+  -webkit-appearance: none; /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  font-size: 18px;
+}
+
+#footer div.inner div.siteArea ul.snsCont {
+  margin-top: 30px;
+  text-align: right;
+}
+#footer div.inner div.siteArea ul.snsCont li {
+  display: inline-block;
+}
+#footer div.inner div.siteArea ul.snsCont li + li {
+  margin-left: 24px;
+}
+#footer div.inner div.siteArea ul.snsCont li a {
+  display: block;
+}
+#footer div.inner div.siteArea ul.snsCont li:first-child a {
+  width: 12px;
+  height: 22px;
+  background: url(../images/sp-hmg-pc-basic-small.png) no-repeat 0 -125px;
+}
+#footer div.inner div.siteArea ul.snsCont li:first-child:hover a {
+  background: url(../images/sp-hmg-pc-basic-small.png) no-repeat -175px -150px;
+}
+#footer div.inner div.siteArea ul.snsCont li:nth-child(2) a {
+  width: 28px;
+  height: 22px;
+  background: url(../images/sp-hmg-pc-basic-small.png) no-repeat -25px -125px;
+}
+#footer div.inner div.siteArea ul.snsCont li:nth-child(2):hover a {
+  background: url(../images/sp-hmg-pc-basic-small.png) no-repeat -200px -150px;
+}
+#footer div.inner div.siteArea ul.snsCont li:last-child a {
+  position: relative;
+  top: -5px;
+}
+#footer div.inner address.companys {
+  margin-top: 48px;
+  width: calc(100% - 360px);
+}
+#footer div.inner address.companys div.company {
+  display: block;
+  overflow: hidden;
+}
+#footer div.inner address.companys > div + div {
+  margin-top: 22px;
+}
+address.companys div.company h4.company-name {
+  float: left;
+  width: 200px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+}
+address.companys div.company div.company-info {
+  float: left;
+  width: calc(100% - 200px);
+  color: #999;
+  overflow: hidden;
+}
+address.companys div.company div.company-info p {
+  display: inline-block;
+  color: #999999;
+  font-size: 14px;
+}
+address.companys div.company div.company-info p {
+  margin-right: 20px;
+}
+#footer div.inner p.copyright {
+  margin-top: 34px;
+  font-size: 14px;
+}
+#footer #back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 14px;
+  color: #fff;
+  background: #23272a;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.visible {
+  opacity: 1 !important;
+}
+
+@media (max-width: 1300px) and (min-width: 1024px) {
+  #footer div.inner address.companys {
+    width: calc(100% - 360px);
+  }
+}
+@media (max-width: 1080px) and (min-width: 1024px) {
+  #footer div.inner ul.links li:first-child {
+    padding-right: 8px;
+  }
+  #footer div.inner ul.links li + li {
+    padding: 0 8px;
+  }
+  #footer div.inner ul.links li:last-child {
+    padding-left: 8px;
+  }
+}

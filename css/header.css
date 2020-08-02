@@ -1,0 +1,168 @@
+#header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  line-height: 90px;
+  font-size: 18px;
+  color: #fff;
+  background: transparent;
+  z-index: 1000;
+}
+#header.scrolltoBottom {
+  background: #000000;
+}
+#header h1.logo {
+  position: absolute;
+  left: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 90px;
+}
+#header h1.logo a {
+  display: block;
+  width: 100%;
+}
+#header h1.logo a img {
+  position: relative;
+  top: -5px;
+}
+#header div.utils {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#header div.utils a {
+  float: left;
+  height: 50px;
+  line-height: 50px;
+}
+#header div.utils a + a {
+  margin-left: 30px;
+}
+#header div.utils a.btnGnb {
+  background: url(../images/icon-gnb.png) no-repeat center center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+#header div.utils a.btnGnb:hover {
+  background: url(../images/icon-gnb-over.png) no-repeat center center;
+}
+#header div.utils a.btnGnb.btnClose {
+  background: url(../images/icon-gnbClose.png) no-repeat center center;
+}
+#header div.utils a.btnGnb.btnClose:hover {
+  background: url(../images/icon-gnbClose-over.png) no-repeat center center;
+}
+#header div.utils a #btnGnb {
+  position: relative;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+#header div.utils a.reservation {
+  width: 180px;
+  border-radius: 60px;
+  text-align: center;
+  background: #fff;
+  color: #222;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+#header div.utils a.reservation:hover {
+  color: #fff;
+  border: 1px solid #f25130;
+  background: linear-gradient(to right, #ff8933 0, #ea2e2e 100%);
+}
+
+#header div.bgCircle {
+  display: block;
+  position: absolute;
+  top: 44px;
+  right: 316px;
+  height: 0;
+  width: 0;
+  border-radius: 50%;
+  background: #24292d;
+  transition: all 0.6s linear;
+  z-index: -1;
+}
+#header.on div.bgCircle {
+  display: block;
+  position: absolute;
+  top: -780px;
+  right: -270px;
+  height: 1680px;
+  width: 1680px;
+  border-radius: 50%;
+  background: #24292d;
+  z-index: -1;
+}
+#header.down {
+  background: #222;
+}
+#header #gnb {
+  position: fixed;
+  top: 300px;
+  right: 100px;
+  width: 1080px;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  transition-delay: 0.3s;
+  display: none;
+}
+#header.on #gnb {
+  top: 190px;
+  opacity: 1;
+  display: block;
+}
+#gnb > nav > ul > li {
+  float: left;
+  box-sizing: border-box;
+  width: 360px;
+  margin-bottom: 40px;
+  line-height: 1;
+}
+#gnb > nav > ul > li > a {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+}
+#gnb > nav > ul > li:nth-child(4) {
+  margin-left: 330px;
+}
+#gnb > nav > ul > li > a ~ ul {
+  margin-top: 20px;
+}
+#gnb > nav > ul > li > a ~ ul li {
+  padding: 8px 0;
+}
+#gnb > nav > ul > li > a ~ ul li a {
+  display: block;
+}
+#gnb > nav > ul > li > a ~ ul li > a span {
+  position: relative;
+}
+#gnb > nav > ul > li > a ~ ul li > a:hover span {
+  color: #fff;
+}
+#gnb > nav > ul > li > a ~ ul li a > span:after {
+  display: block;
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #ff8933, #ea2e2e);
+  transition: all 0.3s ease;
+}
+#gnb > nav > ul > li > a ~ ul li a:hover span:after {
+  width: 100%;
+}

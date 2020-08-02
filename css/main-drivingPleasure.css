@@ -1,0 +1,210 @@
+#drivingPleasure {
+  background: url(../images/main-section04-bg.jpg) no-repeat center center;
+  padding-top: 272px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+#drivingPleasure div.program-wrapper {
+  width: 100%;
+  height: 100%;
+}
+#drivingPleasure div.program-wrapper div.program-intro {
+  width: calc(100% - 420px);
+  margin: 0 auto 134px auto;
+}
+#drivingPleasure div.program-wrapper div.program-intro p.new {
+  font-size: 21px;
+  margin-bottom: 10px;
+  opacity: 0;
+}
+#drivingPleasure div.program-wrapper div.program-intro h2.tit {
+  font-size: 86px;
+  line-height: 1;
+  margin-bottom: 42px;
+  opacity: 0;
+}
+#drivingPleasure div.program-wrapper div.program-intro p.desc {
+  font-size: 24px;
+  opacity: 0;
+}
+
+#drivingPleasure div.program-wrapper ul.program-list {
+  overflow: hidden;
+}
+#drivingPleasure div.program-wrapper ul.program-list li {
+  float: left;
+  width: 25%;
+  box-sizing: border-box;
+  position: relative;
+}
+#drivingPleasure div.program-wrapper ul.program-list li:after {
+  content: '';
+  display: block;
+  padding-top: 167%;
+}
+#drivingPleasure div.program-wrapper ul.program-list li a {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+#drivingPleasure div.program-wrapper ul.program-list li a div.txtArea {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  color: #fff;
+  line-height: 1;
+  transform: translateY(-50%);
+  box-sizing: border-box;
+  transition: top 0.4s;
+  z-index: 1;
+}
+#drivingPleasure div.program-wrapper ul.program-list li a div.txtArea p.desc {
+  padding: 0 56px;
+}
+#drivingPleasure div.program-wrapper ul.program-list li a div.txtArea p.desc,
+#drivingPleasure div.program-wrapper ul.program-list li a div.txtArea div.btnMore {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  transition-delay: 0.1s;
+}
+#drivingPleasure div.program-wrapper ul.program-list li a h3.tit {
+  font-size: 36px;
+}
+#drivingPleasure div.program-wrapper ul.program-list li a:hover div.txtArea {
+  top: calc(50% - 40px);
+}
+#drivingPleasure div.program-wrapper ul.program-list li a:hover div.txtArea h3.tit {
+  margin-bottom: 42px;
+}
+#drivingPleasure div.program-wrapper ul.program-list li a:hover div.txtArea p.desc {
+  margin-bottom: 44px;
+  opacity: 1;
+}
+#drivingPleasure div.program-wrapper ul.program-list li a:hover div.txtArea div.btnMore {
+  opacity: 1;
+}
+#drivingPleasure div.program-wrapper ul.program-list li a:hover div.txtArea div.btnMore span {
+  display: inline-block;
+  width: 170px;
+  height: 46px;
+  line-height: 42px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  font-size: 18px;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+  opacity: 1;
+}
+#drivingPleasure div.program-wrapper ul.program-list li a:hover div.txtArea div.btnMore span:hover {
+  color: #fff;
+  border: 1px solid #f25130;
+  background: linear-gradient(to right, #ff8933 0, #ea2e2e 100%);
+}
+#drivingPleasure div.program-wrapper ul.program-list li a div.imgArea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#drivingPleasure div.program-wrapper ul.program-list li a div.imgArea div.offImg {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: all 0.3s ease-in-out;
+}
+#drivingPleasure div.program-wrapper ul.program-list li a:hover div.imgArea div.offImg {
+  z-index: 0;
+}
+#drivingPleasure div.program-wrapper ul.program-list li:first-child a div.imgArea {
+  background: url(../images/hmg-main-pleasure-img-001-off.jpg) center top/cover no-repeat;
+}
+#drivingPleasure div.program-wrapper ul.program-list li:first-child a div.imgArea div.offImg {
+  background: url(../images/hmg-main-pleasure-img-001.jpg) center/cover no-repeat;
+}
+#drivingPleasure div.program-wrapper ul.program-list li:nth-child(2) a div.imgArea {
+  background: url(../images/hmg-main-pleasure-img-002-off.jpg) center top/cover no-repeat;
+}
+#drivingPleasure div.program-wrapper ul.program-list li:nth-child(2) a div.imgArea div.offImg {
+  background: url(../images/hmg-main-pleasure-img-002.jpg) center/cover no-repeat;
+}
+#drivingPleasure div.program-wrapper ul.program-list li:nth-child(3) a div.imgArea {
+  background: url(../images/hmg-main-pleasure-img-003-off.jpg) center top/cover no-repeat;
+}
+#drivingPleasure div.program-wrapper ul.program-list li:nth-child(3) a div.imgArea div.offImg {
+  background: url(../images/hmg-main-pleasure-img-003.jpg) center/cover no-repeat;
+}
+#drivingPleasure div.program-wrapper ul.program-list li:last-child a div.imgArea {
+  background: url(../images/hmg-main-pleasure-img-004-off.jpg) center top/cover no-repeat;
+}
+#drivingPleasure div.program-wrapper ul.program-list li:last-child a div.imgArea div.offImg {
+  background: url(../images/hmg-main-pleasure-img-004.jpg) center/cover no-repeat;
+}
+#drivingPleasure.rendered div.program-wrapper div.program-intro p.new {
+  animation: fadeIn 0.8s linear 0s 1 normal forwards;
+}
+#drivingPleasure.rendered div.program-wrapper div.program-intro h2.tit {
+  animation: fadeIn 0.8s linear 0.1s 1 normal forwards;
+}
+#drivingPleasure.rendered div.program-wrapper div.program-intro p.desc {
+  animation: fadeIn 0.8s linear 0.2s 1 normal forwards;
+}
+#drivingPleasure.rendered div.program-wrapper ul.program-list li:first-child a {
+  animation: fadeIn 0.8s linear 0.6s 1 normal forwards;
+}
+#drivingPleasure.rendered div.program-wrapper ul.program-list li:nth-child(2) a {
+  animation: fadeIn 0.8s linear 0.8s 1 normal forwards;
+}
+#drivingPleasure.rendered div.program-wrapper ul.program-list li:nth-child(3) a {
+  animation: fadeIn 0.8s linear 1s 1 normal forwards;
+}
+#drivingPleasure.rendered div.program-wrapper ul.program-list li:last-child a {
+  animation: fadeIn 0.8s linear 1.2s 1 normal forwards;
+}
+
+@media (max-width: 1440px) and (min-width: 1024px) {
+  #drivingPleasure div.program-wrapper div.program-intro p.new {
+    font-size: 1.5vw;
+  }
+  #drivingPleasure div.program-wrapper div.program-intro h2.tit {
+    font-size: 5vw;
+  }
+  #drivingPleasure div.program-wrapper div.program-intro p.desc {
+    font-size: 1.4vw;
+    line-height: 1.5;
+  }
+  #drivingPleasure div.program-wrapper ul.program-list li a div.txtArea p.desc {
+    font-size: 1.2vw;
+  }
+  #drivingPleasure div.program-wrapper ul.program-list li a:hover div.txtArea div.btnMore span {
+    padding: 0.75em 1.7em 0.75em;
+    width: auto;
+    height: auto;
+    font-size: 1.25vw;
+    line-height: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}

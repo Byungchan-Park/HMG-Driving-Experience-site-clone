@@ -1,0 +1,345 @@
+#main {
+  position: relative;
+}
+#visual {
+  height: 975px;
+  position: relative;
+  overflow: hidden;
+}
+#visual ol.slide-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#visual ol.slide-container li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#visual ol.slide-container li:before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  width: 1335px;
+  height: 1082px;
+  background: url(../images/visual-round.png) no-repeat;
+}
+
+#visual ol.slide-container li.slides video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 110%;
+}
+#visual ol.slide-container li.second {
+  background: url(../images/edithmg-main-visual-img-002.jpg) no-repeat center center;
+  background-size: cover;
+}
+#visual ol.slide-container li.third {
+  background: url(../images/edit-hmg-main-visual-img-003.jpg) no-repeat center center;
+  background-size: cover;
+}
+#visual ol.slide-container li.fourth {
+  background: url(../images/edithmg-main-visual-img-004.jpg) no-repeat center center;
+  background-size: cover;
+}
+#visual ol.slide-container li.fifth {
+  background: url(../images/hmg-main-visual-img-005.jpg) no-repeat center center;
+  background-size: cover;
+}
+#visual ol.slide-container li p.slogan {
+  position: absolute;
+  left: 210px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  z-index: 20;
+}
+#visual ol.slide-container li p.slogan * {
+  display: block;
+}
+#visual ol.slide-container li p.slogan em {
+  font-size: 82px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+#visual ol.slide-container li p.slogan span {
+  font-size: 18px;
+  margin-top: 36px;
+  font-weight: 400;
+}
+
+#visual #quickMove {
+  position: fixed;
+  right: 34px;
+  top: calc(50vh - 184px);
+  height: 318px;
+  z-index: 100;
+}
+#quickMove:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 318px;
+}
+#quickMove[data-section='section1']:before {
+  background: url(../images/quick-bg-active1.png) no-repeat center center;
+}
+#quickMove[data-section='section2']:before {
+  background: url(../images/quick-bg-active2.png) no-repeat center center;
+}
+#quickMove[data-section='section3']:before {
+  background: url(../images/quick-bg-active3.png) no-repeat center center;
+}
+#quickMove[data-section='section4']:before {
+  background: url(../images/quick-bg-active4.png) no-repeat center center;
+}
+#quickMove ol.sectionMoveBar {
+  height: 100%;
+  left: 35px;
+}
+#quickMove ol.sectionMoveBar li {
+  height: 20%;
+  width: 30px;
+  position: relative;
+}
+#quickMove ol.sectionMoveBar li a {
+  display: block;
+  height: 100%;
+}
+#quickMove ol.sectionMoveBar li a:first-child {
+  position: absolute;
+  top: 8px;
+  right: 44px;
+  height: 28px;
+  line-height: 28px;
+}
+#quickMove ol.sectionMoveBar li:nth-child(3) a:first-child {
+  top: 3px;
+  right: 42px;
+}
+#quickMove ol.sectionMoveBar li:nth-child(4) a:first-child {
+  top: 4px;
+  width: 85px;
+}
+#quickMove ol.sectionMoveBar li:last-child a:first-child {
+  top: 0;
+}
+#quickMove ol.sectionMoveBar li a:first-child span.hoverText {
+  color: #fff;
+  background: #222;
+  border-radius: 20px;
+  padding: 2px 6px;
+  opacity: 0;
+  transition: opacity 0.4s linear;
+}
+#quickMove ol.sectionMoveBar li a:first-child span.hoverText:hover {
+  opacity: 1;
+}
+#quickMove ol.sectionMoveBar li:hover a:first-child span.hoverText {
+  opacity: 1;
+}
+#quickMove ol.sectionMoveBar li a span.blind {
+  color: transparent;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+}
+#visual div.share-wrapper {
+  position: absolute;
+  right: 100px;
+  bottom: 102px;
+  overflow: hidden;
+  transition: overflow 0.4s ease-in-out;
+  z-index: 20;
+}
+#visual div.share-wrapper.clicked {
+  overflow: visible;
+}
+#visual div.share-wrapper canvas {
+  position: relative;
+  z-index: 1;
+}
+#visual div.share-wrapper > a {
+  float: right;
+}
+#visual div.share-wrapper a {
+  position: relative;
+  display: block;
+  width: 62px;
+  height: 62px;
+}
+#visual div.share-wrapper a i {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  background: url(../images/sp-hmg-pc-basic-large.png) no-repeat;
+}
+#visual div.share-wrapper > a.activeBtn i {
+  background-position: 0 -100px;
+}
+#visual div.share-wrapper > a.activeBtn:hover i {
+  background-position: -100px -100px;
+}
+#visual div.share-wrapper ul.share-list {
+  position: absolute;
+  right: 60px;
+  top: 0;
+  width: 216px;
+}
+
+#visual div.share-wrapper ul.share-list li {
+  float: left;
+  margin-right: 10px;
+  opacity: 0;
+  transition: opacity 1s linear;
+}
+#visual div.share-wrapper ul.share-list li:first-child {
+  transition-delay: 0.4s;
+}
+#visual div.share-wrapper ul.share-list li:nth-child(2) {
+  transition-delay: 0.3s;
+}
+#visual div.share-wrapper ul.share-list li:last-child {
+  transition-delay: 0.2s;
+}
+#visual div.share-wrapper.clicked ul.share-list li {
+  opacity: 1;
+}
+#visual div.share-wrapper ul.share-list li a.shareFacebook i {
+  background-position: 0px -350px;
+}
+#visual div.share-wrapper ul.share-list li a.shareFacebook:hover i {
+  background-position: -100px -350px;
+}
+#visual div.share-wrapper ul.share-list li a.shareKakaotalk i {
+  background-position: -200px -350px;
+}
+#visual div.share-wrapper ul.share-list li a.shareKakaotalk:hover i {
+  background-position: -300px -350px;
+}
+#visual div.share-wrapper ul.share-list li a.copyLink i {
+  background-position: -400px -350px;
+}
+#visual div.share-wrapper ul.share-list li a.copyLink:hover i {
+  background-position: -500px -350px;
+}
+
+#visual div.control-box {
+  position: absolute;
+  left: 210px;
+  bottom: 130px;
+  height: 66px;
+  line-height: 66px;
+  z-index: 20;
+}
+#visual div.control-box > * {
+  float: left;
+}
+#visual div.control-box a.btnMotion {
+  position: relative;
+  width: 70px;
+  height: 70px;
+}
+a.btnMotion .icon {
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 60px;
+  height: 60px;
+  background: url(../images/sp-hmg-pc-basic-large.png) no-repeat 0 0;
+}
+a.btnMotion.prev .arrow-left {
+  background-position: -900px -100px;
+}
+a.btnMotion.prev:hover .arrow-left {
+  background-position: -1000px -100px;
+}
+a.btnMotion.next .arrow-right {
+  background-position: -1100px -100px;
+}
+a.btnMotion.next:hover .arrow-right {
+  background-position: -1200px -100px;
+}
+a.btnMotion.pause .icon-pause {
+  background-position: -500px -100px;
+}
+a.btnMotion.pause:hover .icon-pause {
+  background-position: -600px -100px;
+}
+a.btnMotion.play .icon-pause {
+  background-position: -700px -100px;
+}
+a.btnMotion.play:hover .icon-pause {
+  background-position: -800px -100px;
+}
+a.btnMotion canvas {
+  position: relative;
+  z-index: 1;
+}
+#visual div.control-box > div.stateBar {
+  box-sizing: border-box;
+  padding: 0 30px 0 24px;
+  display: flex;
+  color: #ffffff;
+}
+#visual div.control-box > div.stateBar div.numBox {
+  margin-right: 20px;
+}
+#visual div.control-box div.numBox {
+  font-size: 13px;
+}
+#visual div.control-box div.numBox em {
+  font-size: 20px;
+}
+#visual div.control-box div.lineBox span.line {
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: #958b7b;
+  vertical-align: middle;
+}
+#visual div.control-box div.lineBox span.line.on {
+  width: 80px;
+  background: rgba(255, 255, 255, 1);
+}
+#visual div.control-box div.lineBox span.line + span.line {
+  margin-left: 6px;
+}
+
+@media (max-width: 1440px) {
+  #visual ol.slide-container li p.slogan {
+    left: 100px;
+  }
+  #visual div.control-box {
+    left: 100px;
+  }
+}
+@media (max-width: 1440px) and (min-width: 1024px) {
+  #visual ol.slide-container li p.slogan em {
+    font-size: 5vw;
+  }
+  #visual ol.slide-container li p.slogan span {
+    font-size: 1.5vw;
+  }
+}

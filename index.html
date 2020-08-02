@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0">
     <meta http-equiv="pragam" content="no-cache" />
     <title>HMG 드라이빙 익스피리언스 | HMG 드라이빙 아카데미 공식홈</title>
     <script src="https://kit.fontawesome.com/0e5a8c1c44.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script async src="./js/header.js"></script>
+    <script async src="./js/visual.js"></script>
+    <script async src="./js/scroll.js"></script>
+    <script async src="./js/canvas.js"></script>
   </head>
   <body>
     <div id="wrapper">
@@ -19,8 +23,11 @@
         <div class="utils">
           <a href="#">회원가입</a>
           <a href="#">로그인</a>
-          <a href="#" class="open-menu"><span class="ir-hidden">전체메뉴 열기</span></a>
-          <a href="#">예약하기</a>
+          <a href="#" class="btnGnb">
+            <span class="ir-hidden">전체메뉴 열기</span>
+            <canvas id="btnGnb" class width="60" height="60"></canvas>
+          </a>
+          <a href="#" class="reservation">예약하기</a>
         </div>
         <div id="gnb">
           <nav>
@@ -28,53 +35,54 @@
               <li>
                 <a href="#">HMG Driving Experience</a>
                 <ul>
-                  <li><a href="#">About HMG Driving Experience</a></li>
-                  <li><a href="#">SNS Lounge</a></li>
+                  <li><a href="#"><span>About HMG Driving Experience</span></a></li>
+                  <li><a href="#"><span>SNS Lounge</span></a></li>
                 </ul>
               </li>
               <li>
                 <a href="#">Driving Academy</a>
                 <ul>
-                  <li><a href="#">Hyundai Driving Academy</a></li>
-                  <li><a href="#">GENESIS Driving Academy</a></li>
-                  <li><a href="#">Kia Driving Academy</a></li>
+                  <li><a href="#"><span>Hyundai Driving Academy</span></a></li>
+                  <li><a href="#"><span>GENESIS Driving Academy</span></a></li>
+                  <li><a href="#"><span>Kia Driving Academy</span></a></li>
                 </ul>
               </li>
               <li>
                 <a href="#">Driving Pleasure</a>
                 <ul>
-                  <li><a href="#">Trackday</a></li>
-                  <li><a href="#">Test-drive</a></li>
-                  <li><a href="#">Off-road</a></li>
-                  <li><a href="#">Taxi-drive</a></li>
+                  <li><a href="#"><span>Trackday</span></a></li>
+                  <li><a href="#"><span>Test-drive</span></a></li>
+                  <li><a href="#"><span>Off-road</span></a></li>
+                  <li><a href="#"><span>Taxi-drive</span></a></li>
                 </ul>
               </li>
               <li>
                 <a href="#">Hyundai N Festival</a>
                 <ul>
-                  <li><a href="#">About Hyundai N Festival</a></li>
-                  <li><a href="#">Schedule</a></li>
-                  <li><a href="#">Race Result</a></li>
-                  <li><a href="#">Gallery</a></li>
+                  <li><a href="#"><span>About Hyundai N Festival</span></a></li>
+                  <li><a href="#"><span>Schedule</span></a></li>
+                  <li><a href="#"><span>Race Result</span></a></li>
+                  <li><a href="#"><span>Gallery</span></a></li>
                 </ul>
               </li>
               <li>
                 <a href="#">Customer Center</a>
                 <ul>
-                  <li><a href="#">FAQ</a></li>
-                  <li><a href="#">Notice</a></li>
-                  <li><a href="#">Q&A</a></li>
-                  <li><a href="#">Location</a></li>
+                  <li><a href="#"><span>FAQ</span></a></li>
+                  <li><a href="#"><span>Notice</span></a></li>
+                  <li><a href="#"><span>Q&A</span></a></li>
+                  <li><a href="#"><span>Location</span></a></li>
                 </ul>
               </li>
             </ul>
           </nav>
         </div>
+        <div class="bgCircle"></div>
       </header>
       <main id="main">
-        <section id="visual">
-          <ol class="slide">
-            <li>
+        <section id="visual" class="container">
+          <ol class="slide-container">
+            <li class="slides" id="first-slide">
               <video id="mainMovie" muted="true" autoplay playsinline loop preload="auto">
                 <source src="https://drivingexperience.hyundai.co.kr/kr/video/2020/03/hmg-main-visual-movie-001.mp4" type="video/mp4">
               </video>
@@ -85,7 +93,7 @@
                 </em>
                 <span>가족, 친구, 연인과 함께 드라이빙의 매력을 직접 경험해 보세요.</span>
               </p>
-            <li>
+            <li class="slides second">
               <p class="slogan">
                 <em>
                   HMG<br />
@@ -94,7 +102,7 @@
                 <span>가족, 친구, 연인과 함께 드라이빙의 매력을 직접 경험해 보세요.</span>
               </p>
             </li>
-            <li>
+            <li class="slides third">
               <p class="slogan">
                 <em>
                   HMG<br />
@@ -103,7 +111,7 @@
                 <span>가족, 친구, 연인과 함께 드라이빙의 매력을 직접 경험해 보세요.</span>
               </p>
             </li>
-            <li>
+            <li class="slides fourth">
               <p class="slogan">
                 <em>
                   HMG<br />
@@ -112,7 +120,7 @@
                 <span>가족, 친구, 연인과 함께 드라이빙의 매력을 직접 경험해 보세요.</span>
               </p>
             </li>
-            <li>
+            <li class="slides fifth">
               <p class="slogan">
                 <em>
                   HMG<br />
@@ -124,8 +132,10 @@
           </ol>
 
           <div class="control-box clearfix">
-            <a href="#" class="prev">
-              <i class="fas fa-angle-left"><span class="ir-hidden">이전</span></i>
+            <a href="#" class="btnMotion prev" title="이전 컨텐츠 보기">
+              <span class="icon arrow-left"></span>
+              <span class="ir-hidden">이전 컨텐츠 보기</span>
+              <canvas id="btnVisualPrev" class width="70" height="70"></canvas>
             </a>
             <div class="stateBar clearfix">
               <div class="numBox">
@@ -134,7 +144,7 @@
                 <span>5</span>
               </div>
               <div class="lineBox">
-                <span class="line"></span>
+                <span class="line on"></span>
                 <span class="line"></span>
                 <span class="line"></span>
                 <span class="line"></span>
@@ -142,39 +152,96 @@
               </div>
             </div>
             
-            <a href="#" class="next">
-              <i class="fas fa-angle-right"><span class="ir-hidden">다음</span></i>
+            <a href="#" class="btnMotion next" title="다음 컨텐츠 보기">
+              <span class="icon arrow-right"></span>
+              <span class="ir-hidden">다음 컨텐츠 보기</span>
+              <canvas id="btnVisualNext" class width="70" height="70"></canvas>
             </a>
-            <a href="#" class="pause">
-              <i class="fas fa-pause"><span class="ir-hidden">일시정지</span></i>
+            <a href="#" class="btnMotion pause" title="일시정지">
+              <span class="icon icon-pause"></span>
+              <span class="ir-hidden">일시정지</span>
+              <canvas id="btnVisualPause" class width="70" height="70"></canvas>
             </a>
-            
           </div>
           
 
           
-
-          <ol class="sectionMoveBar">
-              <li><a href="#"><span>Home</span></a></li>
-              <li><a href="#"><span>Academy</span></a></li>
-              <li><a href="#"><span>Pleasure</span></a></li>
-              <li><a href="#"><span>N Festival</span></a></li>
-              <li><a href="#"><span>SNS</span></a></li>
-          </ol>
+          <div id="quickMove" data-section="section1">
+            <ol class="sectionMoveBar">
+              <li>
+                <a href="#">
+                  <span class="hoverText">Home</span>
+                </a>
+                <a href="#">
+                  <span class="blind">현재 영역</span>
+                </a>
+              </li>
+              <li>
+                <a href="#drivingAcademy">
+                  <span class="hoverText">Academy</span>
+                </a>
+                <a href="#drivingAcademy">
+                  <span class="blind">현재 영역</span>
+                </a>
+              </li>
+              <li>
+                <a href="#drivingPleasure">
+                  <span class="hoverText">Pleasure</span>
+                </a>
+                <a href="#drivingPleasure">
+                  <span class="blind">현재 영역</span>
+                </a>
+              </li>
+              <li>
+                <a href="#nFestival">
+                  <span class="hoverText">N Festival</span>
+                </a>
+                <a href="#nFestival">
+                  <span class="blind">현재 영역</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="hoverText">SNS</span>
+                </a>
+                <a href="#">
+                  <span class="blind">현재 영역</span>
+                </a>
+              </li>
+            </ol>
+          </div>
 
           <div class="share-wrapper clearfix">
-              <a href="#" class="activeBtn"><i class="icon"><span class="ir-hidden">공유하기</span></i></a>
-            <ul class="clearfix">
-              <li><a href="#" class="shareFacebook"><i class="icon"><span class="ir-hidden">페이스북 공유하기</span></i></a></li>
-              <li><a href="#" class="shareKakaotalk"><i class="icon"><span class="ir-hidden">카카오톡 공유하기</span></i></a></li>
-              <li><a href="#" class="copyLink"><i class="icon"><span class="ir-hidden">링크 복사</span></i></a></li>
+              <a href="#" class="activeBtn" title="열기">
+                <i class="icon"><span class="ir-hidden">공유하기</span></i>
+                <canvas id="btnShare" class width="60" height="60"></canvas>
+              </a>
+            <ul class="clearfix share-list">
+              <li>
+                <a href="#" class="shareFacebook" title="새창열림">
+                  <i class="icon"><span class="ir-hidden">페이스북 공유하기</span></i>
+                  <canvas id="btnShareFacebook" class width="60" height="60"></canvas>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="shareKakaotalk" title="새창열림">
+                  <i class="icon"><span class="ir-hidden">카카오톡 공유하기</span></i>
+                  <canvas id="btnShareKakaotalk" class width="60" height="60"></canvas>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="copyLink">
+                  <i class="icon"><span class="ir-hidden">링크 복사</span></i>
+                  <canvas id="btnShareLink" class width="60" height="60"></canvas>
+                </a>
+              </li>
             </ul>
           </div>
         </section>
 
         <section id="introduction">
             <div class="program-info">
-              <p>About</p>
+              <p class="about">About</p>
               <h2 class="tit">HMG Driving Experience</h2>
               <p class="desc">
                 드라이빙의 매력을 온전히 경험할 수 있도록, 현대자동차그룹(Hyundai Motor Group : HMG)이<br />
@@ -185,9 +252,20 @@
         </section>
 
         <section id="drivingAcademy">
+          <div class="bgLine">
+            <div class="line line1">
+              <div class="innerLine"></div>
+            </div>
+            <div class="line line2">
+              <div class="innerLine"></div>
+            </div>
+            <div class="line line3">
+              <div class="innerLine"></div>
+            </div>
+          </div>
           <div class="program-wrapper">
             <div class="program-intro">
-              <p>Ready for Start</p>
+              <p class="ready">Ready for Start</p>
               <h2 class="tit">Driving Academy</h2>
               <p class="desc">
                 안전운전을 위한 드라이빙의 기초부터 짜릿한 서킷 주행 공략까지<br />
@@ -196,25 +274,37 @@
             </div>
             <ul class="company-list">
               <li>
-                <p>
-                  <em>Hyundai</em>
-                  <span>Driving Academy</span>
-                </p>
-                  <a href="#" class="btnMore">Learn More</a>
+                <a href="#">
+                  <div class="textArea">
+                    <em>Hyundai</em>
+                    <span>Driving Academy</span>
+                    <div class="btnMore"><span>Learn More</span></div>
+                  </div>
+                  <div class="imgArea">
+                  </div>
+                </a>
               </li>
               <li>
-                <p>
-                  <em>GENESIS</em>
-                  <span>Driving Academy</span>
-                  <a href="#" class="btnMore">Learn More</a>
-                </p>
+                <a href="#">
+                  <div class="textArea">
+                    <em>GENESIS</em>
+                    <span>Driving Academy</span>
+                    <div class="btnMore"><span>Learn More</span></div>
+                  </div>
+                  <div class="imgArea">
+                  </div>
+                </a>
               </li>
               <li>
-                <p>
-                  <em>Kia</em>
-                  <span>Driving Academy</span>
-                  <a href="#" class="btnMore">Learn More</a>
-                </p>
+                <a href="#">
+                  <div class="textArea">
+                    <em>Kia</em>
+                    <span>Driving Academy</span>
+                    <div class="btnMore"><span>Learn More</span></div>
+                  </div>
+                  <div class="imgArea">
+                  </div>
+                </a>
               </li>
             </ul>
           </div>
@@ -223,49 +313,78 @@
         <section id="drivingPleasure">
           <div class="program-wrapper">
             <div class="program-intro"">
-              <p>New Experience</p>
+              <p class="new">New Experience</p>
               <h2 class="tit">Driving Pleasure</h2>
               <p class="desc">
                 현대/제네시스/기아자동차의 주요 차종을 다양하게 시승할 수 있는 서킷 테스트 드라이브부터 누구나 즐길 수 있는 서킷 택시 체험까지, 스포츠 드라이빙의 즐거움을 느낄 수 있는 프로그램
               </p>
             </div>
-            <ul class="program-list">
+            <ul class="program-list clearfix">
+              <li>
+                <a href="#">
+                  <div class="txtArea">
+                    <h3 class="tit">Trackday</h3>
+                    <p class="desc">
+                      현대/제네시스/기아자동차 고객이라면<br />
+                      누구나 참여할 수 있는 자차 주행 프로그램
+                    </p>
+                    <div class="btnMore"><span>Learn More</span></div>
+                  </div>
+                  <div class="imgArea">
+                    <div class="offImg"></div>
+                  </div>
+                </a>
+              </li>
                 <li>
-                  <h3 class="tit">Test-drive</h3>
-                  <p class="desc">
-                    다양한 차량을 전문 인스트럭터와 함께 서킷에서 체험하는 고객 시승 프로그램
-                  </p>
-                  <a href="#" class="btnMore">Learn More</a>
+                  <a href="#">
+                    <div class="txtArea">
+                      <h3 class="tit">Test-drive</h3>
+                      <p class="desc">
+                        다양한 차량을 전문 인스트럭터와 함께 서킷에서 체험하는 고객 시승 프로그램
+                      </p>
+                      <div class="btnMore"><span>Learn More</span></div>
+                    </div>
+                    <div class="imgArea">
+                      <div class="offImg"></div>
+                    </div>
+                  </a>
                 </li>
                 <li>
-                  <h3 class="tit">Off-road</h3>
-                  <p class="desc">
-                    특수 제작된 구조물들을 이용해 Off-Road와 유사한 환경을 경험할 수 있는 프로그램
-                  </p>
-                  <a href="#" class="btnMore">Learn More</a>
+                  <a href="#">
+                    <div class="txtArea">
+                      <h3 class="tit">Off-road</h3>
+                      <p class="desc">
+                        특수 제작된 구조물들을 이용해 Off-Road와 유사한 환경을 경험할 수 있는 프로그램
+                      </p>
+                      <div class="btnMore"><span>Learn More</span></div>
+                    </div>
+                    <div class="imgArea">
+                      <div class="offImg"></div>
+                    </div>
+                  </a>
                 </li>
                 <li>
-                  <h3 class="tit">Taxi-drive</h3>
-                  <p class="desc">
-                    전문 드라이버가 운전하는 차량에 동승해 서킷 주행을 짜릿하게 경험할 수 있는 프로그램
-                  </p>
-                  <a href="#" class="btnMore">Learn More</a>
-                </li>
-                <li>
-                  <h3 class="tit">Trackday</h3>
-                  <p class="desc">
-                    현대/제네시스/기아자동차 고객이라면<br />
-                    누구나 참여할 수 있는 자차 주행 프로그램
-                  </p>
-                  <a href="#" class="btnMore">Learn More</a>
+                  <a href="#">
+                    <div class="txtArea">
+                      <h3 class="tit">Taxi-drive</h3>
+                      <p class="desc">
+                        전문 드라이버가 운전하는 차량에 동승해 서킷 주행을 짜릿하게 경험할 수 있는 프로그램
+                      </p>
+                      <div class="btnMore"><span>Learn More</span></div>
+                    </div>
+                    <div class="imgArea">
+                      <div class="offImg"></div>
+                    </div>
+                  </a>
                 </li>
             </ul>
           </div>
         </section>
         <section id="nFestival">
+          <div class="background"></div>
           <div class="festival-wrapper">
             <div class="festival-info">
-              <p>Enjoy this moment</p>
+              <p class="enjoy">Enjoy this moment</p>
               <h2 class="tit">Hyundai N Festival</h2>
               <p class="desc">
                 끊임없는 도전 정신과 질주본능을 자극하는 국내 최고 원메이크 레이스
@@ -274,11 +393,13 @@
             </div>
           </div>
         </section>
-        <section class="news">
+        <section id="news">
           <div class="news-wrapper">
             <div class="news-info">
                 <h3>
-                  <a href="#">NEWS</a>
+                  <a href="#">
+                    NEWS
+                  </a>
                 </h3>
                 <div class="swiper-container">
                   <div class="swiper-wrapper">
@@ -353,11 +474,11 @@
                   <a href="#" class="prev">
                     <i class="fas fa-angle-left"><span>이전</span></i>
                   </a>
-                  <a href="#" class="next">
-                    <i class="fas fa-angle-right"><span>다음</span></i>
-                  </a>
                   <a href="#" class="pause">
                     <i class="fas fa-pause"><span>일시정지</span></i>
+                  </a>
+                  <a href="#" class="next">
+                    <i class="fas fa-angle-right"><span>다음</span></i>
                   </a>
                 </p>
             </div>
@@ -375,27 +496,31 @@
             <li><a href="#">Location</a></li>
             <li><a href="#">Sitemap</a></li>
           </ul>
-          <div>
-            <select id="fmlsite" title="패밀리사이트 이동">
-              <option value="" selected="">Family Site</option>
-              <option value="http://www.hyundai.com">현대자동차</option>
-              <option value="http://www.genesis.com">제네시스</option>
-              <option value="http://www.kia.com">기아자동차</option>
-              <option value="https://www.hyundai.co.kr">현대자동차그룹</option>
-              <option value="https://www.hyundai-n.com/">N</option>
-              <option value="https://motorsport.hyundai.com">현대 모터스포츠</option>
-              <option value="https://eu.drivingexperience.hyundai.com/">글로벌 현대 드라이빙 익스피리언스</option>
-            </select>
-            <a href="#">이동</a>
-            <ul>
+          <div class="siteArea">
+            <div class="familyCont clearfix">
+              <div class="formGroup">
+                <select id="fmlsite" title="패밀리사이트 이동">
+                  <option value="" selected="">Family Site</option>
+                  <option value="http://www.hyundai.com">현대자동차</option>
+                  <option value="http://www.genesis.com">제네시스</option>
+                  <option value="http://www.kia.com">기아자동차</option>
+                  <option value="https://www.hyundai.co.kr">현대자동차그룹</option>
+                  <option value="https://www.hyundai-n.com/">N</option>
+                  <option value="https://motorsport.hyundai.com">현대 모터스포츠</option>
+                  <option value="https://eu.drivingexperience.hyundai.com/">글로벌 현대 드라이빙 익스피리언스</option>
+                </select>
+              </div>
+              <a href="#">이동</a>
+            </div>
+            <ul class="snsCont">
               <li>
                 <a href="https://www.facebook.com/hmgdrivingexperience" target="_blank">
-                  <i class="icon"></i>
+                  <span class="ir-hidden">페이스북 새창 열기</span>
                 </a>
               </li>
               <li>
                 <a href="https://www.youtube.com/playlist?list=PLN_IMWAFOA4-A3LmugYaim8GmTWsRsBNq" target="_blank">
-                  <i class="icon"></i>
+                  <span class="ir-hidden">유튜브 새창 열기</span>
                 </a>
               </li>
               <li>
@@ -451,7 +576,7 @@
           </address>
           <p class="copyright">COPYRIGHT ⓒ 2020 HYUNDAI MOTOR COMPANY, ALL RIGHTS RESERVED.</p>
         </div>
-        
+        <a href="#" id="back-to-top">Top</a>
       </footer>
     </div>
   </body>

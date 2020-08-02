@@ -1,0 +1,92 @@
+#nFestival {
+  padding: 306px 0 280px 0;
+  box-sizing: border-box;
+  color: #fff;
+  position: relative;
+}
+#nFestival div.background {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  background: url(../images/hmg-main-n-festival-bg.jpg) center 80% / cover no-repeat;
+  z-index: -1;
+}
+#nFestival div.festival-wrapper {
+  width: calc(100% - 420px);
+  margin: 0 auto;
+}
+#nFestival div.festival-wrapper div.festival-info p.enjoy {
+  font-size: 21px;
+  margin-bottom: 10px;
+  opacity: 0;
+}
+#nFestival div.festival-wrapper div.festival-info h2.tit {
+  font-size: 86px;
+  line-height: 1;
+  margin-bottom: 42px;
+  opacity: 0;
+}
+#nFestival div.festival-wrapper div.festival-info p.desc {
+  font-size: 24px;
+  opacity: 0;
+}
+#nFestival div.festival-wrapper div.festival-info a.btnMore {
+  display: block;
+  width: 170px;
+  height: 46px;
+  line-height: 42px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  font-size: 18px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 52px;
+  opacity: 0;
+}
+#nFestival div.festival-wrapper div.festival-info a.btnMore:hover {
+  color: #fff;
+  border: 1px solid #f25130;
+  background: linear-gradient(to right, #ff8933 0, #ea2e2e 100%);
+}
+
+#nFestival div.festival-wrapper div.festival-info p.enjoy {
+  animation: fadeIn 0.8s linear 0s 1 normal forwards;
+}
+#nFestival div.festival-wrapper div.festival-info h2.tit {
+  animation: fadeIn 0.8s linear 0.2s 1 normal forwards;
+}
+#nFestival div.festival-wrapper div.festival-info p.desc {
+  animation: fadeIn 0.8s linear 0.4s 1 normal forwards;
+}
+#nFestival div.festival-wrapper div.festival-info a.btnMore {
+  animation: fadeIn 0.8s linear 0.6s 1 normal forwards;
+}
+@media (max-width: 1440px) and (min-width: 1024px) {
+  #nFestival div.festival-wrapper {
+    width: calc(100% - 200px);
+  }
+  #nFestival div.festival-wrapper div.festival-info p.enjoy {
+    font-size: 1.5vw;
+  }
+  #nFestival div.festival-wrapper div.festival-info h2.tit {
+    font-size: 5vw;
+  }
+  #nFestival div.festival-wrapper div.festival-info p.desc {
+    font-size: 1.4vw;
+    line-height: 1.5;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}

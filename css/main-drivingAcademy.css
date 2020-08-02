@@ -1,0 +1,229 @@
+#drivingAcademy {
+  padding: 282px 0 268px 0;
+  background: #151515;
+  position: relative;
+}
+#drivingAcademy div.bgLine div.line {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  background-color: #191919;
+}
+#drivingAcademy div.bgLine div.line.line1 {
+  left: calc(50% - 375px);
+}
+#drivingAcademy div.bgLine div.line.line2 {
+  left: 50%;
+}
+#drivingAcademy div.bgLine div.line.line3 {
+  left: calc(50% + 375px);
+}
+#drivingAcademy div.bgLine div.line div.innerLine {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 60%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.15) 25%, rgba(255, 255, 255, 0.15) 76%, rgba(255, 255, 255, 0.01) 99%, rgba(255, 255, 255, 0) 100%);
+}
+#drivingAcademy div.bgLine div.line:first-child div.innerLine {
+  animation: line-move-effect 2.5s linear 0s infinite normal forwards;
+}
+#drivingAcademy div.bgLine div.line:nth-child(2) div.innerLine {
+  animation: line-move-effect 2.5s linear 0.5s infinite normal forwards;
+}
+#drivingAcademy div.bgLine div.line:last-child div.innerLine {
+  animation: line-move-effect 2.5s linear 1s infinite normal forwards;
+}
+#drivingAcademy div.program-wrapper {
+  width: calc(100% - 420px);
+  margin: 0 auto;
+  color: #fff;
+  position: relative;
+}
+#drivingAcademy div.program-wrapper div.program-intro {
+  text-align: center;
+}
+#drivingAcademy div.program-wrapper div.program-intro p.ready {
+  font-size: 22px;
+  margin-bottom: 10px;
+  opacity: 0;
+}
+#drivingAcademy div.program-wrapper div.program-intro h2.tit {
+  font-size: 72px;
+  margin-bottom: 20px;
+  opacity: 0;
+}
+#drivingAcademy div.program-wrapper div.program-intro p.desc {
+  font-size: 21px;
+  opacity: 0;
+}
+#drivingAcademy div.program-wrapper ul.company-list {
+  overflow: hidden;
+  margin-top: 100px;
+}
+#drivingAcademy div.program-wrapper ul.company-list li {
+  float: left;
+  width: 32%;
+  position: relative;
+  opacity: 0;
+}
+#drivingAcademy div.program-wrapper ul.company-list li:hover {
+  opacity: 0.7;
+}
+#drivingAcademy div.program-wrapper ul.company-list li:after {
+  content: '';
+  display: block;
+  padding-top: 130%;
+}
+#drivingAcademy div.program-wrapper ul.company-list li a {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+#drivingAcademy div.program-wrapper ul.company-list li a div.imgArea {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+#drivingAcademy div.program-wrapper ul.company-list li:first-child a div.imgArea {
+  background: url(../images/hmg-main-academy-img-001.jpg) center/cover no-repeat;
+}
+#drivingAcademy div.program-wrapper ul.company-list li:nth-child(2) a div.imgArea {
+  background: url(../images/hmg-main-academy-img-002.jpg) center/cover no-repeat;
+}
+#drivingAcademy div.program-wrapper ul.company-list li:last-child a div.imgArea {
+  background: url(../images/hmg-main-academy-img-003.jpg) center/cover no-repeat;
+}
+#drivingAcademy div.program-wrapper ul.company-list li + li {
+  margin-left: 2%;
+}
+
+#drivingAcademy div.program-wrapper ul.company-list li a div.textArea {
+  position: absolute;
+  left: 38px;
+  top: 36px;
+  font-weight: 700;
+}
+#drivingAcademy div.program-wrapper ul.company-list li div.textArea * {
+  display: block;
+}
+#drivingAcademy div.program-wrapper ul.company-list li a div.textArea em {
+  font-size: 35px;
+}
+#drivingAcademy div.program-wrapper ul.company-list li a div.textArea span {
+  font-size: 21px;
+}
+#drivingAcademy div.program-wrapper ul.company-list li a div.textArea div.btnMore span {
+  display: inline-block;
+  width: 170px;
+  height: 46px;
+  line-height: 42px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  font-size: 18px;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30px;
+  opacity: 0;
+  transition: opacity 0.4s linear;
+  transition: bottom 0.4s linear;
+  position: relative;
+  bottom: -40px;
+}
+#drivingAcademy div.program-wrapper ul.company-list li:hover a div.textArea div.btnMore span {
+  opacity: 1;
+  bottom: 0;
+}
+#drivingAcademy div.program-wrapper ul.company-list li a div.textArea div.btnMore span:hover {
+  color: #fff;
+  border: 1px solid #f25130;
+  background: linear-gradient(to right, #ff8933 0, #ea2e2e 100%);
+}
+
+@media (max-width: 1440px) and (min-width: 1024px) {
+  #drivingAcademy div.program-wrapper {
+    width: calc(100% - 200px);
+  }
+  #drivingAcademy div.program-wrapper div.program-intro p.ready {
+    font-size: 1.5vw;
+  }
+  #drivingAcademy div.program-wrapper div.program-intro h2.tit {
+    font-size: 5vw;
+  }
+  #drivingAcademy div.program-wrapper div.program-intro p.desc {
+    font-size: 1.4vw;
+    line-height: 1.5;
+  }
+  #drivingAcademy div.program-wrapper ul.company-list li a div.textArea em {
+    font-size: 2.5vw;
+  }
+  #drivingAcademy div.program-wrapper ul.company-list li a div.textArea span {
+    font-size: 1.6vw;
+  }
+  #drivingAcademy div.program-wrapper ul.company-list li a div.textArea div.btnMore span {
+    padding: 0.75em 1.7em 0.75em;
+    width: auto;
+    height: auto;
+    font-size: 1.25vw;
+    line-height: 1;
+  }
+}
+
+#drivingAcademy.rendered div.program-wrapper div.program-intro p.ready {
+  animation: fadeIn 0.4s linear 0s 1 normal forwards;
+}
+#drivingAcademy.rendered div.program-wrapper div.program-intro h2.tit {
+  animation: fadeIn 0.4s linear 0.2s 1 normal forwards;
+}
+#drivingAcademy.rendered div.program-wrapper div.program-intro p.desc {
+  animation: fadeIn 0.4s linear 0.4s 1 normal forwards;
+}
+#drivingAcademy.rendered div.program-wrapper ul.company-list li:first-child {
+  animation: fadeIn 0.4s linear 0.6s 1 normal forwards;
+}
+#drivingAcademy.rendered div.program-wrapper ul.company-list li:nth-child(2) {
+  animation: fadeIn 0.4s linear 0.8s 1 normal forwards;
+}
+#drivingAcademy.rendered div.program-wrapper ul.company-list li:last-child {
+  animation: fadeIn 0.4s linear 1s 1 normal forwards;
+}
+
+@keyframes line-move-effect {
+  0% {
+    top: -10;
+  }
+  25% {
+    top: 25%;
+  }
+  50% {
+    top: 50%;
+  }
+  75% {
+    top: 75%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}

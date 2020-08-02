@@ -1,0 +1,86 @@
+#news {
+  background: #000000;
+  font-size: 16px;
+}
+#news div.news-wrapper {
+  padding: 25px 110px 0;
+  width: calc(100% - 160px);
+  height: 80px;
+  border-bottom: 1px solid #444;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0 auto;
+}
+#news div.news-wrapper div.news-info h3 {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#news div.news-wrapper div.news-info h3 a {
+  display: block;
+  padding-right: 20px;
+}
+#news div.news-wrapper div.news-info h3 a:after {
+  content: '';
+  width: 9px;
+  height: 15px;
+  background: url(../images/sp-hmg-pc-basic-small.png) -125px 0 no-repeat;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#news div.news-wrapper div.news-info div.swiper-container {
+  overflow: hidden;
+  height: 30px;
+  width: 100%;
+  line-height: 30px;
+  position: relative;
+}
+#news div.news-wrapper div.news-info div.swiper-container:before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  left: 570px;
+  background: #fff;
+  opacity: 0.2;
+}
+#news div.news-wrapper div.news-info div.swiper-container div.swiper-wrapper {
+  width: 115680px;
+}
+#news div.news-wrapper div.news-info div.swiper-container div.swiper-wrapper > div {
+  float: left;
+}
+div.swiper-container div.swiper-wrapper > div {
+  width: 469.5px;
+  box-sizing: border-box;
+}
+div.swiper-container div.swiper-wrapper > div + div {
+  margin-left: 200px;
+}
+div.swiper-container div.swiper-wrapper > div a {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+  max-width: calc(100% - 110px);
+  color: #fff;
+  margin-right: 20px;
+  line-height: 16px;
+}
+#news p.control {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+#news p.control a {
+  color: #fff;
+}
+#news p.control a + a {
+  margin-left: 12px;
+}

@@ -12,6 +12,7 @@
   top: 0;
   width: 100%;
   height: 100%;
+  transition: left 0.3s;
 }
 #visual ol.slide-container li {
   position: absolute;
@@ -33,7 +34,7 @@
   background: url(../images/visual-round.png) no-repeat;
 }
 
-#visual ol.slide-container li.slides video {
+#visual ol.slide-container li.slide video {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -312,19 +313,23 @@ a.btnMotion canvas {
 #visual div.control-box div.numBox em {
   font-size: 20px;
 }
-#visual div.control-box div.lineBox span.line {
+#visual div.control-box ul.indicator li.line {
   display: inline-block;
   width: 24px;
   height: 2px;
   background: #958b7b;
   vertical-align: middle;
 }
-#visual div.control-box div.lineBox span.line.on {
+#visual div.control-box ul.indicator li.line.on {
   width: 80px;
   background: rgba(255, 255, 255, 1);
 }
-#visual div.control-box div.lineBox span.line + span.line {
+#visual div.control-box ul.indicator li.line + li.line {
   margin-left: 6px;
+}
+#visual div.control-box ul.indicator li.line a.hidden {
+  display: block;
+  font-size: 0;
 }
 
 @media (max-width: 1440px) {

@@ -1,140 +1,113 @@
 'use strict'
 
-const slideContainer = document.getElementsByClassName('slide-container')[0]
-const slides = document.getElementsByClassName('slides')
+const slideContainer = document.querySelector('.slide-container')
 const firstSlide = document.getElementById('first-slide')
-const lineList = document.getElementsByClassName('line')
-const visualPrevBtn = document.getElementsByClassName('prev')[0]
-const visualStopBtn = document.getElementsByClassName('pause')[0]
-const visualNextBtn = document.getElementsByClassName('next')[0]
-let slideNumber = document.querySelector('.control-box .stateBar .numBox em')
-let currentIndex = 1
 const firstItemClone = slideContainer.firstElementChild.cloneNode(true)
 const lastItemClone = slideContainer.lastElementChild.cloneNode(true)
-
 slideContainer.insertBefore(lastItemClone, firstSlide)
 slideContainer.appendChild(firstItemClone)
-const slideCount = slides.length
+const slides = document.querySelectorAll('.slide')
+const indicator = document.querySelectorAll('li.line')
+const visualPrevBtn = document.querySelector('.prev')
+const visualStopBtn = document.querySelector('.pause')
+const visualNextBtn = document.querySelector('.next')
+let slideNumber = document.querySelector('.control-box .stateBar .numBox em')
+let currentSlide = 0
+let nextSlide = 0
+let prevSlide = 0
+let slideCount = slides.length
+let timerID = ''
+let isTimerOn = true // false이면 타이머가 꺼진 상태로 돌리겠다. true이면 타이머가 켜진 상태로 돌리겠다.
+let timerSpeed = 3000
 
 // 슬라이드가 있으면 가로로 배열하기
 for (let i = 0; i < slideCount; i++) {
   slides[i].style.left = i * 100 + '%'
 }
 
+showSlide(1) // 초기 슬라이드 상태 설정
+
 // 슬라이드 이동 함수
-function goToSlide(idx) {
+function showSlide(n) {
+  clearInterval(timerID)
+
   slideContainer.style.transition = '0.3s'
-  slideContainer.style.left = (idx + 1) * -100 + '%'
-  currentIndex = idx + 1
+  slideContainer.style.left = n * -100 + '%'
+
+  indicator.forEach((line) => line.classList.remove('on'))
+  indicator.forEach((line, i) => {
+    if (n === 0) {
+      indicator[4].classList.add('on')
+    } else if (n === 6) {
+      indicator[0].classList.add('on')
+    } else if (i === n - 1) {
+      line.classList.add('on')
+    }
+  })
+  slideNumber.innerHTML = n === 0 ? 5 : n === 6 ? 1 : n
+
+  currentSlide = n
+  nextSlide = n >= slideCount - 1 ? 2 : n + 1
+  prevSlide = n <= 0 ? 4 : n - 1
+
+  // about prevBtn which moves from the first slide to last slide naturally
+  if (currentSlide === 0) {
+    slideContainer.addEventListener('transitionend', moveToLast)
+  } else {
+    slideContainer.removeEventListener('transitionend', moveToLast)
+  }
+
+  // about nextBtn which moves from the last slide to fist slide naturally
+  if (currentSlide === slideCount - 1) {
+    slideContainer.addEventListener('transitionend', moveToFirst)
+  } else {
+    slideContainer.removeEventListener('transitionend', moveToFirst)
+  }
+
+  if (isTimerOn === true) {
+    timerID = setInterval(() => {
+      showSlide(nextSlide)
+    }, timerSpeed)
+  }
 }
+
 // 버튼을 클릭하면 슬라이드 이동시키기
 visualPrevBtn.addEventListener('click', function (event) {
   event.preventDefault()
-  console.log(currentIndex) // 1
-  // 처음이 아니라면 goToSlide(currentIndex - 1)
-  // 처음이라면 goToSlide(???)
-  if (currentIndex === 0) {
-    slideContainer.style.transition = '0.3s'
-    slideContainer.style.left = '0%'
-    slideNumber.innerHTML = 5
-    setTimeout(() => {
-      slideContainer.style.transition = '0s'
-      slideContainer.style.left = '-500%'
-    }, 301)
-    currentIndex = 4
-    lineList[0].classList.remove('on')
-    lineList[currentIndex].classList.add('on')
-  } else {
-    slideContainer.style.transition = '0.3s'
-    slideContainer.style.left = currentIndex * -100 + '%'
-    slideNumber.innerHTML = currentIndex
-    lineList[currentIndex].classList.remove('on')
-    lineList[currentIndex - 1].classList.add('on')
-    currentIndex--
-  }
-})
-visualNextBtn.addEventListener('click', function (event) {
-  event.preventDefault()
-  console.log(currentIndex) // 1 2 3 4
-  // 마지막이 아니라면 goToSlide(currentIndex + 1);
-  // 마지막이라면 goToSlide(??);
-  if (currentIndex === slideCount - 2) {
-    // 4
-    slideContainer.style.left = -600 + '%'
-    slideNumber.innerHTML = 1
-    setTimeout(() => {
-      slideContainer.style.transition = '0s'
-      slideContainer.style.left = 0
-    }, 301)
-    lineList[currentIndex - 1].classList.remove('on')
-    lineList[0].classList.add('on')
-    currentIndex = 1
-  } else {
-    goToSlide(currentIndex) // -200% -300% -400% -500%
-    console.log(currentIndex) // 2 3 4 5
-    slideNumber.innerHTML = currentIndex // 2 3 4 5
-    if (currentIndex === 2) {
-      lineList[0].classList.remove('on')
-      lineList[currentIndex - 1].classList.add('on')
-    } else {
-      lineList[currentIndex - 2].classList.remove('on')
-      lineList[currentIndex - 1].classList.add('on')
-    }
-  }
+  showSlide(prevSlide)
 })
 
-// 슬라이드 자동 전환
-let intervalId
-function slideShow() {
-  intervalId = setInterval(() => {
-    slideContainer.style.transition = '0.3s'
-    slideContainer.style.left = (currentIndex + 1) * -100 + '%'
-    currentIndex++
-
-    // 슬라이드가 이동하면서 슬라이드 숫자 바꾸기
-    if (currentIndex === slideCount - 1) {
-      slideNumber.innerHTML = 1
-      lineList[currentIndex - 2].classList.remove('on')
-      lineList[0].classList.add('on')
-    } else {
-      slideNumber.innerHTML = currentIndex
-      if (currentIndex === 2) {
-        lineList[0].classList.remove('on')
-        lineList[currentIndex - 1].classList.add('on')
-      } else {
-        lineList[currentIndex - 2].classList.remove('on')
-        lineList[currentIndex - 1].classList.add('on')
-      }
-    }
-    if (currentIndex === slideCount - 1) {
-      // 다시 첫 번째 슬라이드로 돌아간다.
-      setTimeout(() => {
-        slideContainer.style.transition = '0s'
-        slideContainer.style.left = '-100%'
-      }, 301)
-      currentIndex = 1
-    }
-  }, 6000)
+function moveToLast() {
+  slideContainer.style.transition = '0s'
+  slideContainer.style.left = '-500%'
 }
 
-window.addEventListener('load', () => {
-  // 처음 슬라이드 보여주기
-  slideContainer.style.left = '-100%'
-  // 슬라이드 자동 전환
-  slideShow()
+visualNextBtn.addEventListener('click', function (event) {
+  event.preventDefault()
+  showSlide(nextSlide)
 })
+
+function moveToFirst() {
+  slideContainer.style.transition = '0s'
+  slideContainer.style.left = '-100%'
+}
 
 // 재생 버튼과 일시정지 버튼 전환
 visualStopBtn.addEventListener('click', (event) => {
   event.preventDefault()
   // 일시정지 버튼을 누를 때
-  if (visualStopBtn.classList.contains('pause')) {
-    clearInterval(intervalId)
+  if (isTimerOn === true) {
+    console.log('hello')
     visualStopBtn.classList.add('play')
     visualStopBtn.classList.remove('pause')
+    clearInterval(timerID)
+    isTimerOn = false
   } else {
-    slideShow()
     visualStopBtn.classList.add('pause')
     visualStopBtn.classList.remove('play')
+    timerID = setInterval(() => {
+      showSlide(nextSlide)
+    }, timerSpeed)
+    isTimerOn = true
   }
 })

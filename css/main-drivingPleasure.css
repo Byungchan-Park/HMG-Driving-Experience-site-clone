@@ -16,17 +16,14 @@
 #drivingPleasure div.program-wrapper div.program-intro p.new {
   font-size: 21px;
   margin-bottom: 10px;
-  opacity: 0;
 }
 #drivingPleasure div.program-wrapper div.program-intro h2.tit {
   font-size: 86px;
   line-height: 1;
   margin-bottom: 42px;
-  opacity: 0;
 }
 #drivingPleasure div.program-wrapper div.program-intro p.desc {
   font-size: 24px;
-  opacity: 0;
 }
 
 #drivingPleasure div.program-wrapper ul.program-list {
@@ -50,7 +47,6 @@
   top: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
 }
 #drivingPleasure div.program-wrapper ul.program-list li a div.txtArea {
   position: absolute;
@@ -153,27 +149,6 @@
 #drivingPleasure div.program-wrapper ul.program-list li:last-child a div.imgArea div.offImg {
   background: url(../images/hmg-main-pleasure-img-004.jpg) center/cover no-repeat;
 }
-#drivingPleasure.rendered div.program-wrapper div.program-intro p.new {
-  animation: fadeIn 0.8s linear 0s 1 normal forwards;
-}
-#drivingPleasure.rendered div.program-wrapper div.program-intro h2.tit {
-  animation: fadeIn 0.8s linear 0.1s 1 normal forwards;
-}
-#drivingPleasure.rendered div.program-wrapper div.program-intro p.desc {
-  animation: fadeIn 0.8s linear 0.2s 1 normal forwards;
-}
-#drivingPleasure.rendered div.program-wrapper ul.program-list li:first-child a {
-  animation: fadeIn 0.8s linear 0.6s 1 normal forwards;
-}
-#drivingPleasure.rendered div.program-wrapper ul.program-list li:nth-child(2) a {
-  animation: fadeIn 0.8s linear 0.8s 1 normal forwards;
-}
-#drivingPleasure.rendered div.program-wrapper ul.program-list li:nth-child(3) a {
-  animation: fadeIn 0.8s linear 1s 1 normal forwards;
-}
-#drivingPleasure.rendered div.program-wrapper ul.program-list li:last-child a {
-  animation: fadeIn 0.8s linear 1.2s 1 normal forwards;
-}
 
 @media (max-width: 1440px) and (min-width: 1024px) {
   #drivingPleasure div.program-wrapper div.program-intro p.new {
@@ -195,16 +170,5 @@
     height: auto;
     font-size: 1.25vw;
     line-height: 1;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(200px);
-  }
-  100% {
-    opacity: 1;
-    transform: none;
   }
 }

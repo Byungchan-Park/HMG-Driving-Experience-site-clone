@@ -33,6 +33,7 @@
 }
 #news div.news-wrapper div.news-info div.swiper-container {
   overflow: hidden;
+  margin: 0 auto;
   height: 30px;
   width: 100%;
   line-height: 30px;
@@ -42,35 +43,44 @@
   content: '';
   display: block;
   width: 1px;
-  height: 100%;
+  height: 30px;
   position: absolute;
-  left: 570px;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%);
   background: #fff;
   opacity: 0.2;
 }
 #news div.news-wrapper div.news-info div.swiper-container div.swiper-wrapper {
-  width: 115680px;
 }
 #news div.news-wrapper div.news-info div.swiper-container div.swiper-wrapper > div {
   float: left;
 }
+
 div.swiper-container div.swiper-wrapper > div {
-  width: 469.5px;
-  box-sizing: border-box;
+  width: 30.6vw;
+  font-size: 18px;
 }
 div.swiper-container div.swiper-wrapper > div + div {
-  margin-left: 200px;
+  margin-left: 190px;
 }
 div.swiper-container div.swiper-wrapper > div a {
   display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
+  /* 너비가 줄어들 때 글자들이 흘러 넘치면 ...으로 보이게 한다. */
   white-space: nowrap;
+  /* 너비가 줄어들 때 글자가 아래로 떨어지지 않게 한다. */
+  /* overflow, text-overflow, white-space가 set */
   vertical-align: middle;
-  max-width: calc(100% - 110px);
+  width: calc(100% - 140px);
+  line-height: 100%;
   color: #fff;
   margin-right: 20px;
   line-height: 16px;
+}
+div.swiper-container div.swiper-wrapper > div span.date {
+  float: right;
 }
 #news p.control {
   position: absolute;
@@ -83,4 +93,13 @@ div.swiper-container div.swiper-wrapper > div a {
 }
 #news p.control a + a {
   margin-left: 12px;
+}
+
+@media (max-width: 1400px) {
+  div.swiper-container div.swiper-wrapper > div + div {
+    margin-left: 80px;
+  }
+  div.swiper-container div.swiper-wrapper > div {
+    width: 32.7vw;
+  }
 }

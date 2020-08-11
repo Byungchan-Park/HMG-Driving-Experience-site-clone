@@ -2,12 +2,20 @@
 
 const gnbBtn = document.querySelector('.btnGnb')
 const header = document.getElementById('header')
+const gnb = document.getElementById('gnb')
 
 // gnb 버튼 눌렀을 때 닫기 버튼으로 바뀌고, 다시 눌렀을 때 열기 버튼으로 바뀐다.
 gnbBtn.addEventListener('click', (event) => {
   event.preventDefault()
   gnbBtn.classList.toggle('btnClose')
   header.classList.toggle('on')
+  if (header.className.includes('on')) {
+    header.addEventListener('transitionend', () => {
+      gnb.className = 'show'
+    })
+  } else {
+    gnb.className = undefined
+  }
 })
 
 let last_known_scroll_position = 0

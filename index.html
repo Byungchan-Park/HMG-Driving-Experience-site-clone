@@ -8,10 +8,6 @@
     <script src="https://kit.fontawesome.com/0e5a8c1c44.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
-    <script async src="./js/header.js"></script>
-    <script async src="./js/visual.js"></script>
-    <script async src="./js/scroll.js"></script>
-    <script async src="./js/canvas.js"></script>
   </head>
   <body>
     <div id="wrapper">
@@ -82,7 +78,7 @@
       <main id="main">
         <section id="visual" class="container">
           <ol class="slide-container">
-            <li class="slides" id="first-slide">
+            <li class="slide" id="first-slide">
               <video id="mainMovie" muted="true" autoplay playsinline loop preload="auto">
                 <source src="https://drivingexperience.hyundai.co.kr/kr/video/2020/03/hmg-main-visual-movie-001.mp4" type="video/mp4">
               </video>
@@ -93,7 +89,7 @@
                 </em>
                 <span>가족, 친구, 연인과 함께 드라이빙의 매력을 직접 경험해 보세요.</span>
               </p>
-            <li class="slides second">
+            <li class="slide second">
               <p class="slogan">
                 <em>
                   HMG<br />
@@ -102,7 +98,7 @@
                 <span>가족, 친구, 연인과 함께 드라이빙의 매력을 직접 경험해 보세요.</span>
               </p>
             </li>
-            <li class="slides third">
+            <li class="slide third">
               <p class="slogan">
                 <em>
                   HMG<br />
@@ -111,7 +107,7 @@
                 <span>가족, 친구, 연인과 함께 드라이빙의 매력을 직접 경험해 보세요.</span>
               </p>
             </li>
-            <li class="slides fourth">
+            <li class="slide fourth">
               <p class="slogan">
                 <em>
                   HMG<br />
@@ -120,7 +116,7 @@
                 <span>가족, 친구, 연인과 함께 드라이빙의 매력을 직접 경험해 보세요.</span>
               </p>
             </li>
-            <li class="slides fifth">
+            <li class="slide fifth">
               <p class="slogan">
                 <em>
                   HMG<br />
@@ -143,13 +139,23 @@
                 /
                 <span>5</span>
               </div>
-              <div class="lineBox">
-                <span class="line on"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-              </div>
+              <ul class="indicator">
+                <li class="line on">
+                  <a href="#" class="hidden">첫번째 슬라이드</a>
+                </li>
+                <li class="line">
+                  <a href="#" class="hidden">두번째 슬라이드</a>
+                </li>
+                <li class="line">
+                  <a href="#" class="hidden">세번째 슬라이드</a>
+                </li>
+                <li class="line">
+                  <a href="#" class="hidden">네번째 슬라이드</a>
+                </li>
+                <li class="line">
+                  <a href="#" class="hidden">다섯번째 슬라이드</a>
+                </li>
+              </ul>
             </div>
             
             <a href="#" class="btnMotion next" title="다음 컨텐츠 보기">
@@ -241,13 +247,13 @@
 
         <section id="introduction">
             <div class="program-info">
-              <p class="about">About</p>
-              <h2 class="tit">HMG Driving Experience</h2>
-              <p class="desc">
+              <p class="about up-on-scroll">About</p>
+              <h2 class="tit up-on-scroll">HMG Driving Experience</h2>
+              <p class="desc up-on-scroll">
                 드라이빙의 매력을 온전히 경험할 수 있도록, 현대자동차그룹(Hyundai Motor Group : HMG)이<br />
                 모터스포츠의 노하우를 담아 제공하는 주행체험 프로그램입니다.
               </p>
-              <a href="#" class="btnMore">Learn More</a>
+              <a href="#" class="btnMore up-on-scroll">Learn More</a>
             </div>  
         </section>
 
@@ -265,15 +271,15 @@
           </div>
           <div class="program-wrapper">
             <div class="program-intro">
-              <p class="ready">Ready for Start</p>
-              <h2 class="tit">Driving Academy</h2>
-              <p class="desc">
+              <p class="ready up-on-scroll">Ready for Start</p>
+              <h2 class="tit up-on-scroll">Driving Academy</h2>
+              <p class="desc up-on-scroll">
                 안전운전을 위한 드라이빙의 기초부터 짜릿한 서킷 주행 공략까지<br />
                 전문 인스트럭터의 지원과 Level 1 ~ 3로 구성된 체계적인 교육 프로그램
               </p>
             </div>
             <ul class="company-list">
-              <li>
+              <li class="up-on-scroll">
                 <a href="#">
                   <div class="textArea">
                     <em>Hyundai</em>
@@ -284,7 +290,7 @@
                   </div>
                 </a>
               </li>
-              <li>
+              <li class="up-on-scroll">
                 <a href="#">
                   <div class="textArea">
                     <em>GENESIS</em>
@@ -295,7 +301,7 @@
                   </div>
                 </a>
               </li>
-              <li>
+              <li class="up-on-scroll">
                 <a href="#">
                   <div class="textArea">
                     <em>Kia</em>
@@ -313,15 +319,15 @@
         <section id="drivingPleasure">
           <div class="program-wrapper">
             <div class="program-intro"">
-              <p class="new">New Experience</p>
-              <h2 class="tit">Driving Pleasure</h2>
-              <p class="desc">
+              <p class="new up-on-scroll">New Experience</p>
+              <h2 class="tit up-on-scroll">Driving Pleasure</h2>
+              <p class="desc up-on-scroll">
                 현대/제네시스/기아자동차의 주요 차종을 다양하게 시승할 수 있는 서킷 테스트 드라이브부터 누구나 즐길 수 있는 서킷 택시 체험까지, 스포츠 드라이빙의 즐거움을 느낄 수 있는 프로그램
               </p>
             </div>
             <ul class="program-list clearfix">
               <li>
-                <a href="#">
+                <a href="#" class="program up-on-scroll">
                   <div class="txtArea">
                     <h3 class="tit">Trackday</h3>
                     <p class="desc">
@@ -336,7 +342,7 @@
                 </a>
               </li>
                 <li>
-                  <a href="#">
+                  <a href="#" class="program up-on-scroll">
                     <div class="txtArea">
                       <h3 class="tit">Test-drive</h3>
                       <p class="desc">
@@ -350,7 +356,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="#" class="program up-on-scroll">
                     <div class="txtArea">
                       <h3 class="tit">Off-road</h3>
                       <p class="desc">
@@ -364,7 +370,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="#" class="program up-on-scroll">
                     <div class="txtArea">
                       <h3 class="tit">Taxi-drive</h3>
                       <p class="desc">
@@ -384,12 +390,12 @@
           <div class="background"></div>
           <div class="festival-wrapper">
             <div class="festival-info">
-              <p class="enjoy">Enjoy this moment</p>
-              <h2 class="tit">Hyundai N Festival</h2>
-              <p class="desc">
+              <p class="enjoy up-on-scroll">Enjoy this moment</p>
+              <h2 class="tit up-on-scroll">Hyundai N Festival</h2>
+              <p class="desc up-on-scroll">
                 끊임없는 도전 정신과 질주본능을 자극하는 국내 최고 원메이크 레이스
               </p>
-              <a href="#" class="btnMore">Learn More</a>
+              <a href="#" class="btnMore up-on-scroll">Learn More</a>
             </div>
           </div>
         </section>
@@ -579,5 +585,10 @@
         <a href="#" id="back-to-top">Top</a>
       </footer>
     </div>
+    <script src="./js/header.js"></script>
+    <script src="./js/visual.js"></script>
+    <script src="./js/scroll.js"></script>
+    <script src="./js/canvas.js"></script>
+    <script src="./js/news.js"></script>
   </body>
 </html>

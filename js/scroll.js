@@ -2,7 +2,7 @@
 
 let btt = document.getElementById('back-to-top')
 const docElem = document.documentElement
-let offset
+let offset = 0
 const docHeight = Math.max(docElem.offsetHeight, docElem.scrollHeight)
 const quickMoveBar = document.getElementById('quickMove')
 const festivalBg = document.querySelector('#nFestival .background')
@@ -10,6 +10,48 @@ const introduction = document.getElementById('introduction')
 const drivingAcademy = document.getElementById('drivingAcademy')
 const drivingPleasure = document.getElementById('drivingPleasure')
 const nFestival = document.getElementById('nFestival')
+let scrollPos = 0
+
+function isElementUnderBottom(elem, triggerDiff) {
+  const { top } = elem.getBoundingClientRect()
+  // elem 의 보이는 영역(viewport)을 시작점으로 위치
+  const { innerHeight } = window
+  // 뷰포트의 높이
+  return top > innerHeight + (triggerDiff || 0)
+}
+// element가 스크린 아래쪽에 있는지를 검사한다.
+
+function handleScroll() {
+  const elems = document.querySelectorAll('.up-on-scroll')
+  let seconds = 0.2
+  Object.values(elems)
+    .filter((elem) => elem.tagName === 'LI')
+    .forEach((elem) => {
+      elem.style.transitionDelay = `${seconds}s`
+      seconds += 0.2
+    })
+  // #drivingAcademy의 image들 시간차로 화면에 띄우기
+  seconds = 0.2
+  Object.values(elems)
+    .filter((elem) => elem.classList.contains('program'))
+    .forEach((elem) => {
+      elem.style.transitionDelay = `${seconds}s`
+      seconds += 0.2
+    })
+  // #drivingPleasure의 image들 시간차로 화면에 띄우기
+
+  elems.forEach((elem) => {
+    if (isElementUnderBottom(elem, -20)) {
+      elem.style.opacity = '0'
+      elem.style.transform = 'translateY(70px)'
+    } else {
+      elem.style.opacity = '1'
+      elem.style.transform = 'translateY(0px)'
+    }
+  })
+}
+
+window.addEventListener('scroll', handleScroll)
 
 if (docHeight !== 'undefined') {
   offset = docHeight / 4
@@ -18,9 +60,8 @@ if (docHeight !== 'undefined') {
 let zoom = 0.66
 
 window.addEventListener('scroll', () => {
-  let scrollPos = docElem.scrollTop
+  scrollPos = docElem.scrollTop
   btt.className = scrollPos > offset ? 'visible' : ''
-  console.log(scrollPos)
   // 스크롤 이벤트에 따라 quickMoveBar 이미지 변경
   if (scrollPos < 1200) {
     quickMoveBar.setAttribute('data-section', 'section1')
@@ -31,12 +72,6 @@ window.addEventListener('scroll', () => {
   } else if (scrollPos > 3900) {
     quickMoveBar.setAttribute('data-section', 'section4')
   }
-
-  // 스크롤 이벤트에 따라 각 영역별 컨텐츠들이 렌더링된다.
-  if (scrollPos > 500 && introduction.className === '') introduction.className = 'rendered'
-  if (scrollPos > 1300 && drivingAcademy.className === '') drivingAcademy.className = 'rendered'
-  if (scrollPos > 2780 && drivingPleasure.className === '') drivingPleasure.className = 'rendered'
-  if (scrollPos > 4100 && nFestival.className === '') nFestival.className = 'rendered'
 })
 btt.addEventListener('click', (event) => {
   event.preventDefault()

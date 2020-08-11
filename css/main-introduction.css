@@ -44,18 +44,6 @@
   background: linear-gradient(to right, #ff8933 0, #ea2e2e 100%);
 }
 
-#introduction.rendered div.program-info p.about {
-  animation: fadeIn 0.4s linear 0s 1 normal forwards;
-}
-#introduction.rendered div.program-info h2 {
-  animation: fadeIn 0.4s linear 0.1s 1 normal forwards;
-}
-#introduction.rendered div.program-info p.desc {
-  animation: fadeIn 0.4s linear 0.2s 1 normal forwards;
-}
-#introduction.rendered div.program-info a.btnMore {
-  animation: fadeIn 0.4s linear 0.3s 1 normal forwards;
-}
 @media (max-width: 1440px) and (min-width: 1024px) {
   #introduction div.program-info p.about {
     font-size: 1.5vw;
@@ -73,16 +61,5 @@
     width: auto;
     height: auto;
     line-height: 1;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: none;
   }
 }

@@ -90,9 +90,43 @@ div.swiper-container div.swiper-wrapper > div span.date {
 }
 #news p.control a {
   color: #fff;
+  position: relative;
+}
+#news p.control a.btnPlay {
+  display: none;
+}
+#news p.control a:before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  background: url(../images/main-news-ctrl.png);
+}
+#news p.control a.btnPrev:before {
+  width: 9px;
+  height: 16px;
+  background-position: 0 0;
+}
+#news p.control a.btnPause:before {
+  width: 8px;
+  height: 14px;
+  background-position: -21px -1px;
+}
+#news p.control a.btnPlay:before {
+  width: 9px;
+  height: 16px;
+  background-position: -40px 0;
+}
+#news p.control a.btnNext:before {
+  width: 9px;
+  height: 16px;
+  background-position: -57px 0;
 }
 #news p.control a + a {
   margin-left: 12px;
+}
+#news p.control {
 }
 
 @media (max-width: 1400px) {

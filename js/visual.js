@@ -93,18 +93,17 @@ function moveToFirst() {
 }
 
 // 재생 버튼과 일시정지 버튼 전환
-visualStopBtn.addEventListener('click', (event) => {
+visualStopBtn.addEventListener('click', function (event) {
   event.preventDefault()
   // 일시정지 버튼을 누를 때
   if (isTimerOn === true) {
-    console.log('hello')
-    visualStopBtn.classList.add('play')
-    visualStopBtn.classList.remove('pause')
+    this.classList.add('play')
+    this.classList.remove('pause')
     clearInterval(timerID)
     isTimerOn = false
   } else {
-    visualStopBtn.classList.add('pause')
-    visualStopBtn.classList.remove('play')
+    this.classList.add('pause')
+    this.classList.remove('play')
     timerID = setInterval(() => {
       showSlide(nextSlide)
     }, timerSpeed)

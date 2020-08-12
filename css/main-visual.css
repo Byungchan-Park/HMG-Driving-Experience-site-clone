@@ -327,10 +327,6 @@ a.btnMotion canvas {
 #visual div.control-box ul.indicator li.line + li.line {
   margin-left: 6px;
 }
-#visual div.control-box ul.indicator li.line a.hidden {
-  display: block;
-  font-size: 0;
-}
 
 @media (max-width: 1440px) {
   #visual ol.slide-container li p.slogan {

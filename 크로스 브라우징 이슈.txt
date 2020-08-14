@@ -1,7 +1,0 @@
-오페라 브라우저에서 quickMoveBar가 스크롤 이벤트에 반응하지 않음.
-오페라 브라우저에서 
-파이어 폭스에서 news section 클릭 이벤트에 의해 위치 설정이 이상함.
-IE=edge에서 메뉴 클릭 시에 글씨가 늦게 등장하지 않음. 먼저 등장함.
-IE=edge에서 quickMoveBar가 스크롤 이벤트에 반응하지 않음.
-IE=edge에서 main-visual prevBtn과 nextBtn을 클릭했을 때 아래에 커서 이슈가 있음.
-IE=edge에서 확대가 되지 않음.

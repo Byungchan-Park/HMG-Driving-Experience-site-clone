@@ -1,20 +1,21 @@
+'use strict'
+
 function hoverEffectCanvas(e, n) {
   function i(e) {
     r.clearRect(0, 0, o, s)
-
     r.beginPath()
     r.arc(d, h, p, b, e, !1)
     r.stroke()
-
     g++
     u + 1 > g &&
       (c = requestAnimationFrame(function () {
         i((f * g) / 30 + b)
       }))
   }
-  if (((a = e), 0 == document.querySelectorAll('#' + e).length)) return !1
 
-  var t = document.getElementById(a),
+  if (((a = e), 0 == document.querySelectorAll('#' + e).length)) return !1
+  var a,
+    t = document.getElementById(a),
     o = t.width,
     s = t.height,
     r = t.getContext('2d'),
@@ -27,7 +28,6 @@ function hoverEffectCanvas(e, n) {
   r.shadowOffsetY = 0
   r.shadowBlur = 2
   r.shadowColor = '#e11111'
-
   var c,
     d = o / 2,
     h = s / 2,
@@ -36,11 +36,9 @@ function hoverEffectCanvas(e, n) {
     b = Math.PI / -2,
     u = 100,
     g = 0
-
   t.addEventListener('mouseover', function () {
     i()
   })
-
   t.addEventListener('mouseout', function () {
     cancelAnimationFrame(c)
     g = 0

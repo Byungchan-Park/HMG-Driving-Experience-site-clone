@@ -1,112 +1,138 @@
 'use strict'
 
-let btt = document.getElementById('back-to-top')
-const docElem = document.documentElement
-let offset = 0
-const docHeight = Math.max(docElem.offsetHeight, docElem.scrollHeight)
-const quickMoveBar = document.getElementById('quickMove')
-const festivalBg = document.querySelector('#nFestival .background')
-const introduction = document.getElementById('introduction')
-const drivingAcademy = document.getElementById('drivingAcademy')
-const drivingPleasure = document.getElementById('drivingPleasure')
-const nFestival = document.getElementById('nFestival')
-let scrollPos = 0
+var header = document.getElementById('header')
+var btt = document.getElementById('back-to-top')
+var docElem = document.documentElement
 
-function isElementUnderBottom(elem, triggerDiff) {
-  const { top } = elem.getBoundingClientRect()
-  // elem 의 보이는 영역(viewport)을 시작점으로 위치
-  const { innerHeight } = window
-  // 뷰포트의 높이
-  return top > innerHeight + (triggerDiff || 0)
-}
-// element가 스크린 아래쪽에 있는지를 검사한다.
+var zoom = 0.66
 
-function handleScroll() {
-  const elems = document.querySelectorAll('.up-on-scroll')
-  let seconds = 0.2
-  Object.values(elems)
-    .filter((elem) => elem.tagName === 'LI')
-    .forEach((elem) => {
-      elem.style.transitionDelay = `${seconds}s`
-      seconds += 0.2
-    })
-  // #drivingAcademy의 image들 시간차로 화면에 띄우기
-  seconds = 0.2
-  Object.values(elems)
-    .filter((elem) => elem.classList.contains('program'))
-    .forEach((elem) => {
-      elem.style.transitionDelay = `${seconds}s`
-      seconds += 0.2
-    })
-  // #drivingPleasure의 image들 시간차로 화면에 띄우기
+var scrollPosPrev = 0
 
-  elems.forEach((elem) => {
-    if (isElementUnderBottom(elem, -20)) {
-      elem.style.opacity = '0'
-      elem.style.transform = 'translateY(70px)'
-    } else {
-      elem.style.opacity = '1'
-      elem.style.transform = 'translateY(0px)'
-    }
-  })
-}
+window.addEventListener('scroll', function () {
+  var scrollPosCurrent = docElem.scrollTop || window.scrollY
 
-window.addEventListener('scroll', handleScroll)
+  var direction = scrollPosCurrent - scrollPosPrev > 0 ? 1 : -1
 
-if (docHeight !== 'undefined') {
-  offset = docHeight / 4
-}
+  scrollPosPrev = scrollPosCurrent
 
-let zoom = 0.66
-
-window.addEventListener('scroll', () => {
-  scrollPos = docElem.scrollTop
-  btt.className = scrollPos > offset ? 'visible' : ''
-  // 스크롤 이벤트에 따라 quickMoveBar 이미지 변경
-  if (scrollPos < 1200) {
-    quickMoveBar.setAttribute('data-section', 'section1')
-  } else if (scrollPos > 1200 && scrollPos < 2600) {
-    quickMoveBar.setAttribute('data-section', 'section2')
-  } else if (scrollPos > 2600 && scrollPos < 3900) {
-    quickMoveBar.setAttribute('data-section', 'section3')
-  } else if (scrollPos > 3900) {
-    quickMoveBar.setAttribute('data-section', 'section4')
-  }
+  scrollEffect.changeHeaderBg(scrollPosCurrent)
+  scrollEffect.showElementUp()
+  scrollEffect.changeBarStatus(scrollPosCurrent)
+  scrollEffect.showBttBtn(scrollPosCurrent)
+  scrollEffect.controlBg(scrollPosCurrent, direction)
 })
-btt.addEventListener('click', (event) => {
+
+btt.addEventListener('click', function (event) {
   event.preventDefault()
-  scrollToTop()
+  scrollEffect.backToTop(scrollPosPrev)
 })
 
-function scrollToTop() {
-  let scrollInterval = setInterval(() => {
-    if (scrollPos !== 0) {
-      window.scrollBy(0, -55)
-    } else {
-      clearInterval(scrollInterval)
+var scrollEffect = {
+  changeHeaderBg: function (scrollPos) {
+    scrollPos ? header.classList.add('down') : header.classList.remove('down')
+  },
+  showElementUp: function () {
+    var elems = document.querySelectorAll('.up-on-scroll')
+    var seconds = 0.2
+    var elemsArray = []
+
+    for (var i = 0; i < elems.length; i++) {
+      elemsArray.push({
+        index: i,
+        tagName: elems[i].nodeName,
+        classNames: elems[i].className,
+      })
     }
-  }, 15)
-}
 
-// Save a current position in global
-window.__scrollPosition = document.documentElement.scrollTop || 0
+    elemsArray
+      .filter(function (elem) {
+        return elem.tagName === 'LI'
+      })
+      .forEach(function (elem) {
+        elems[elem.index].style.transitionDelay = seconds + 's'
+        seconds += 0.2
+      }) // #drivingAcademy의 image들 시간차로 화면에 띄우기
 
-document.addEventListener('scroll', function () {
-  let _documentY = document.documentElement.scrollTop
-  let _direction = _documentY - window.__scrollPosition >= 0 ? 1 : -1
-  window.__scrollPosition = _documentY // Update scrollY
+    seconds = 0.2
 
-  if (_documentY > 3800 && _documentY < 4700) {
-    if (_direction > 0) {
-      festivalBg.style.width = `${100 + zoom}%`
-      zoom += 0.66
-    } else {
-      if (festivalBg.style.width.replace('%', '') > 100) {
-        festivalBg.style.width = `${100 + zoom}%`
-        zoom -= 0.44
+    elemsArray
+      .filter(function (elem) {
+        return elem.classNames.indexOf('program') !== -1
+      })
+      .forEach(function (elem) {
+        elems[elem.index].style.transitionDelay = seconds + 's'
+        seconds += 0.2
+      }) // #drivingPleasure의 image들 시간차로 화면에 띄우기
+
+    elemsArray.forEach(function (elem) {
+      var domElement = elems[elem.index]
+
+      if (isElementUnderBottom(domElement, -20)) {
+        // 브라우저의 화면 상에서 docElement가 보이지 않는다면,
+        domElement.style.opacity = '0'
+        domElement.style.transform = 'translateY(70px)'
+        domElement.style['-ms-transform'] = 'translateY(70px)'
+      } else {
+        // 브라우저의 화면 상에서 docElement가 보이기 시작하면,
+        domElement.style.opacity = '1'
+        domElement.style.transform = 'translateY(0px)'
+        domElement.style['-ms-transform'] = 'translateY(0px)'
       }
-      // 배경 이미지가 100%보다 작아질 때는 더이상 축소되지 않는다.
-      // 배경 이미지의 최소 너비는 항상 100%를 유지한다.
+    })
+
+    // 요소가 브라우저 화면의 아래에 위치하는지 판단하는 함수
+    function isElementUnderBottom(elem, triggerDiff) {
+      return elem.getBoundingClientRect().top > window.innerHeight + (triggerDiff || 0)
     }
-  }
-})
+    // element가 스크린 아래쪽에 있는지를 검사한다.
+  },
+  changeBarStatus: function (scrollPosCurrent) {
+    var quickMoveBar = document.getElementById('quickMove')
+
+    if (scrollPosCurrent < 1200) {
+      quickMoveBar.setAttribute('data-section', 'section1')
+    } else if (scrollPosCurrent > 1200 && scrollPosCurrent < 2600) {
+      quickMoveBar.setAttribute('data-section', 'section2')
+    } else if (scrollPosCurrent > 2600 && scrollPosCurrent < 3900) {
+      quickMoveBar.setAttribute('data-section', 'section3')
+    } else if (scrollPosCurrent > 3900) {
+      quickMoveBar.setAttribute('data-section', 'section4')
+    }
+  },
+  showBttBtn: function (scrollPosCurrent) {
+    var docHeight = Math.max(docElem.offsetHeight, docElem.scrollHeight)
+    var offset = 0
+
+    if (docHeight !== 'undefined') {
+      offset = docHeight / 4
+    }
+
+    btt.className = scrollPosCurrent > offset ? 'visible' : '' // 스크롤 이벤트에 따라 quickMoveBar 이미지 변경
+  },
+  backToTop: function (scrollPosPrev) {
+    var scrollInterval = setInterval(function () {
+      if (scrollPosPrev !== 0) {
+        window.scrollBy(0, -55)
+      } else {
+        clearInterval(scrollInterval)
+      }
+    }, 15)
+  },
+  controlBg: function (scrollPosCurrent, direction) {
+    var festivalBg = document.querySelector('#nFestival .background')
+
+    if (scrollPosCurrent > 3800 && scrollPosCurrent < 4700) {
+      if (direction > 0) {
+        festivalBg.style.width = 100 + zoom + '%'
+        zoom += 0.66
+      } else {
+        var BgWidth = festivalBg.style.width.replace('%', '')
+        if (BgWidth > 100) {
+          festivalBg.style.width = 100 + zoom + '%'
+          zoom -= 0.44
+        } // 배경 이미지가 100%보다 작아질 때는 더이상 축소되지 않는다.
+        // 배경 이미지의 최소 너비는 항상 100%를 유지한다.
+      }
+    }
+  },
+}

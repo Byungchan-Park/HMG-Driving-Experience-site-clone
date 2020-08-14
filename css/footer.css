@@ -2,6 +2,7 @@
   background: #000000;
   padding: 0 80px 50px;
   position: relative;
+  z-index: 200;
 }
 #footer div.inner {
   padding-top: 50px;

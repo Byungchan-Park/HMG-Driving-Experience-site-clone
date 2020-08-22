@@ -86,3 +86,6 @@ button {
   position: absolute;
   left: -5000px;
 }
+.mobile {
+  display: none !important;
+}

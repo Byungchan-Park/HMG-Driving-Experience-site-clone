@@ -1,34 +1,42 @@
 'use strict'
 
 var swiperWrap = document.querySelector('.swiper-wrapper')
-var swiper = document.querySelectorAll('.swiper-wrapper div')
+var swiperElems = document.querySelectorAll('.swiper-wrapper div')
 var prevBtn = document.querySelector('#news p.control a.btnPrev')
 var pauseBtn = document.querySelector('#news p.control a.btnPause')
 var nextBtn = document.querySelector('#news p.control a.btnNext')
 var playBtn = document.querySelector('#news p.control a.btnPlay')
-var width = window.getComputedStyle(swiper[0]).width.replace('px', '')
-var margin = window.getComputedStyle(swiper[1]).marginLeft.replace('px', '')
-var outerWidth = Number(width) + Number(margin)
+var indicator = document.querySelector('#indicator') // it exists only in mobile version
+var width = window.getComputedStyle(swiperElems[0]).width.replace('px', '')
+var margin = window.getComputedStyle(swiperElems[1]).marginLeft.replace('px', '')
+var outerWidth = parseFloat(width) + parseFloat(margin)
 var newsCount = 0
 var positionChange = 0
+var lastNewsNum = swiperElems.length - 1
 var timerId2 = ''
 var isTimerOn2 = true
 var timerSpeed2 = 3000
 
+makeIndicator(indicator, swiperElems.length) // only with mobile version works
 showNews()
 isWholeWidth()
 
 window.addEventListener('resize', function () {
   isWholeWidth()
-  width = window.getComputedStyle(swiper[0]).width.replace('px', '')
-  margin = window.getComputedStyle(swiper[1]).marginLeft.replace('px', '')
-  outerWidth = Number(width) + Number(margin)
+  width = window.getComputedStyle(swiperElems[0]).width.replace('px', '')
+  margin = window.getComputedStyle(swiperElems[1]).marginLeft.replace('px', '')
+  outerWidth = parseFloat(width) + parseFloat(margin)
 })
+
 prevBtn.addEventListener('click', function () {
-  showNews('prevBtn')
+  newsCount--
+  newsCount = Math.max(newsCount, 0)
+  showNews()
 })
 nextBtn.addEventListener('click', function () {
-  showNews('nextBtn')
+  newsCount++
+  newsCount = Math.min(newsCount, lastNewsNum)
+  showNews()
 })
 pauseBtn.addEventListener('click', function () {
   if (isTimerOn2 === true) {
@@ -47,41 +55,42 @@ playBtn.addEventListener('click', function () {
   }
 })
 
+// for a mobile version
+// each indicator button works when clicks
+// shows each news
+for (let i = 0; i < indicator.childNodes.length; i++) {
+  var indicatorBtn = indicator.childNodes[i].childNodes[0]
+  indicatorBtn.addEventListener('click', function (event) {
+    event.preventDefault()
+    newsCount = i
+    showNews()
+  })
+}
+
 function showNews() {
   clearInterval(timerId2)
   swiperWrap.style.transition = '0.3s'
   positionChange = outerWidth * newsCount
 
-  if (arguments[0] === 'prevBtn') {
-    if (newsCount > 1 && positionChange <= 0) {
-      prevBtn.setAttribute('disabled', true)
-      newsCount = 0 // 첫번째 뉴스가 보이면 더이상 왼쪽 방향으로 이동하지 않는다.
+  swiperWrap.style.transform = 'translate3d(-' + positionChange + 'px, 0, 0)'
+  swiperWrap.style['-ms-transform'] = 'translate(-' + positionChange + 'px, 0)' // ie9 대응
+
+  prevBtn.disabled = positionChange === 0
+  nextBtn.disabled = positionChange === outerWidth * lastNewsNum
+
+  for (let i = 0; i < indicator.childNodes.length; i++) {
+    if (newsCount === i) {
+      indicator.childNodes[i].className = 'active'
     } else {
-      prevBtn.setAttribute('disabled', false)
-      newsCount > 0 && newsCount-- // 첫번째 뉴스가 보이기 전까지는 위치가 이동한다.
+      indicator.childNodes[i].className = ''
     }
   }
-
-  if (arguments[0] === 'nextBtn') {
-    if (positionChange >= Number(swiperWrap.style.width.replace('px', '')) - outerWidth - Number(width)) {
-      nextBtn.setAttribute('disabled', true) // 마지막 뉴스가 보이면 더이상 오른쪽 방향으로 이동하지 않는다.
-    } else {
-      nextBtn.setAttribute('disabled', false)
-      newsCount++ // 마지막 뉴스가 보이기 전까지는 위치가 이동한다.
-    }
-  }
-
-  swiperWrap.style.transform = 'translate3d(-' + outerWidth * newsCount + 'px, 0, 0)'
-  swiperWrap.style['-ms-transform'] = 'translate(-' + outerWidth * newsCount + 'px, 0)' // ie9 대응
 
   if (isTimerOn2 === true) {
     timerId2 = setInterval(function () {
       newsCount++
-
-      if (positionChange >= Number(swiperWrap.style.width.replace('px', '')) - outerWidth - Number(width)) {
-        newsCount = 0
-      }
-
+      newsCount = Math.min(newsCount, lastNewsNum)
+      if (newsCount === lastNewsNum) newsCount = 0
       showNews()
     }, timerSpeed2)
   }
@@ -93,10 +102,10 @@ function isWholeWidth() {
   var marginLeftProp = ''
   var widthProp = ''
 
-  for (var i = 0; i < swiper.length; i++) {
-    widthProp = window.getComputedStyle(swiper[i]).width.replace('px', '')
+  for (var i = 0; i < swiperElems.length; i++) {
+    widthProp = window.getComputedStyle(swiperElems[i]).width.replace('px', '')
     widthSum += Number(widthProp)
-    marginLeftProp = window.getComputedStyle(swiper[i]).marginLeft.replace('px', '')
+    marginLeftProp = window.getComputedStyle(swiperElems[i]).marginLeft.replace('px', '')
 
     if (marginLeftProp) {
       marginSum += Number(marginLeftProp)

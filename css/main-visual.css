@@ -313,18 +313,19 @@ a.btnMotion canvas {
 #visual div.control-box div.numBox em {
   font-size: 20px;
 }
-#visual div.control-box ul.indicator li.line {
+#visual div.control-box ul.indicator li {
+  position: relative;
   display: inline-block;
   width: 24px;
   height: 2px;
   background: #958b7b;
   vertical-align: middle;
 }
-#visual div.control-box ul.indicator li.line.on {
+#visual div.control-box ul.indicator li.on {
   width: 80px;
   background: rgba(255, 255, 255, 1);
 }
-#visual div.control-box ul.indicator li.line + li.line {
+#visual div.control-box ul.indicator li + li {
   margin-left: 6px;
 }
 

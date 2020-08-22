@@ -10,9 +10,6 @@
   background: transparent;
   z-index: 1000;
 }
-#header.scrolltoBottom {
-  background: #000000;
-}
 #header h1.logo {
   position: absolute;
   left: 80px;
@@ -106,7 +103,7 @@
   z-index: -1;
 }
 #header.down {
-  background: #222;
+  background: #000;
 }
 #header #gnb {
   position: fixed;

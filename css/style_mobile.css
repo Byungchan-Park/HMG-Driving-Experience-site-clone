@@ -1,0 +1,1338 @@
+@charset 'utf-8';
+/* CSS Document */
+
+/* reset */
+html {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+body {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+p,
+table,
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+header,
+main,
+footer,
+section,
+article,
+aside,
+nav {
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+a img {
+  border: none;
+}
+img {
+  vertical-align: middle;
+  max-width: 100%;
+}
+li {
+  list-style: none;
+}
+address,
+em,
+i,
+cite {
+  font-style: normal;
+}
+table {
+  border-collapse: collapse;
+}
+table caption {
+  overflow: hidden;
+  width: 0;
+  height: 0;
+}
+i.fas,
+i.far,
+i.fab {
+  vertical-align: middle;
+  display: inline-block;
+}
+i.fas span,
+i.far span,
+i.fab span {
+  position: absolute;
+  overflow: hidden;
+  text-indent: -999px;
+}
+.pc {
+  display: none !important;
+}
+br.only-w {
+  content: '';
+}
+br.only-w:after {
+  content: '\00a0';
+}
+div.hidden {
+  position: absolute;
+  left: -9999px;
+}
+.clearfix::after,
+.clearfix::before {
+  content: '';
+  display: block;
+  clear: both;
+}
+.ir-hidden {
+  position: absolute;
+  left: -5000px;
+}
+.hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 1px;
+  color: transparent;
+  line-height: 1;
+  letter-spacing: -10px;
+}
+
+/* common */
+body {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #333333;
+  background: #ffffff;
+}
+/* gnbBtn을 누를 때 body태그에 show-gnb를 붙여 세로 스크롤바를 없앤다. */
+body.gnb-active {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+#wrapper {
+  min-width: 320px;
+  max-width: 850px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* skip-nav */
+#skip-nav {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -100px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  z-index: 10000;
+  transition: all 0.5s;
+}
+#skip-nav:focus {
+  top: 0;
+}
+
+/* -------- header -------- */
+#header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  font-size: 10px;
+  color: #fff;
+  background: transparent;
+  z-index: 1000;
+}
+#header.down {
+  background: #000;
+}
+#header h1.logo {
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  height: 35px;
+}
+#header h1.logo a {
+  display: block;
+  width: 100%;
+}
+#header h1.logo a img {
+  vertical-align: top;
+  width: 141px;
+  height: 35px;
+}
+#header div.utils {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#header div.utils a {
+  float: left;
+  height: 50px;
+  line-height: 50px;
+}
+#header div.utils a.btnGnb {
+  background: url(../images/icon-gnb.png) no-repeat center center;
+  background-size: 21px 12px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 38px;
+  box-sizing: border-box;
+}
+
+#gnb {
+  position: fixed;
+  top: 0;
+  right: -100vw;
+  background: #24292d;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 70px;
+  transition: right 0.4s;
+}
+#gnb > nav {
+  border-top: 1px solid #444;
+  height: 100%;
+  box-sizing: border-box;
+  padding-bottom: 146px;
+}
+#gnb > nav > ul {
+  height: 100%;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+#gnb > nav > ul > li {
+  box-sizing: border-box;
+  line-height: 1;
+  height: 60px;
+  overflow: hidden;
+  transition: height 0.4s;
+}
+#gnb > nav > ul > li > a {
+  display: block;
+  padding: 20px 40px 20px 20px;
+  font-size: 19px;
+  font-weight: 700;
+  position: relative;
+}
+#gnb > nav > ul > li > a:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  right: 24px;
+  width: 18px;
+  height: 11px;
+  background: url(../images/sp-hmg-mobile-basic-small.png) no-repeat -275px 0 / 300px 250px;
+}
+#gnb > nav > ul > li > a + ul {
+  margin-top: 10px;
+  padding: 20px 20px 35px;
+  background: #000000b3;
+}
+#gnb > nav > ul > li > a + ul li a {
+  display: block;
+  padding: 19px 18px 19px 0;
+  position: relative;
+  border-bottom: 1px solid #999999;
+}
+#gnb > nav > ul > li > a + ul li > a span {
+  font-size: 15px;
+}
+#gnb > ul {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  transform: translateY(-100%);
+  background: #3a3f42;
+  width: 100%;
+}
+#gnb > ul > li {
+  float: left;
+  padding: 30px 15px;
+  line-height: 1;
+}
+#gnb > ul > li + li {
+  margin-left: 4px;
+}
+#gnb > ul > li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+}
+#header.on h1.logo,
+#header.on div.utils {
+  z-index: 10;
+}
+#header.on div.utils a.btnGnb {
+  background: url(../images/icon-gnbClose.png) no-repeat center center;
+}
+#header.on #gnb {
+  right: 0;
+}
+#header.on #gnb > nav > ul > li > a.active:before {
+  transform: rotate(-180deg);
+}
+#header.on #gnb > nav > ul > li.show {
+  height: 220px;
+}
+
+/* -------- main -------- */
+#main {
+  position: relative;
+}
+#main a.reservation {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(to right, #ff8933 0, #ea2e2e 100%);
+  color: #fff;
+  /* z-index: 1000; */
+}
+
+/* -------- visual -------- */
+#visual {
+  height: 705px;
+  position: relative;
+  overflow: hidden;
+}
+#visual ol.slide-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: left 0.3s;
+}
+#visual ol.slide-container li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#visual ol.slide-container li:before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  width: 1335px;
+  height: 1082px;
+  background: url(../images/visual-round.png) no-repeat;
+}
+
+#visual ol.slide-container li.slide video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 110%;
+}
+#visual ol.slide-container li.second {
+  background: url(../images/edithmg-main-visual-img-002.jpg) no-repeat center center;
+  background-size: cover;
+}
+#visual ol.slide-container li.third {
+  background: url(../images/edit-hmg-main-visual-img-003.jpg) no-repeat center center;
+  background-size: cover;
+}
+#visual ol.slide-container li.fourth {
+  background: url(../images/edithmg-main-visual-img-004.jpg) no-repeat center center;
+  background-size: cover;
+}
+#visual ol.slide-container li.fifth {
+  background: url(../images/hmg-main-visual-img-005.jpg) no-repeat center center;
+  background-size: cover;
+}
+#visual ol.slide-container li p.slogan {
+  position: absolute;
+  left: 20px;
+  top: 45%;
+  bottom: auto;
+  transform: translateY(-50%);
+  color: #fff;
+  z-index: 20;
+}
+#visual ol.slide-container li p.slogan * {
+  display: block;
+}
+#visual ol.slide-container li p.slogan em {
+  font-size: 41px;
+  font-weight: 700;
+  line-height: 48px;
+}
+#visual ol.slide-container li p.slogan span {
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 20px;
+  font-weight: 400;
+}
+#visual div.share-wrapper {
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
+  overflow: hidden;
+  transition: overflow 0.4s ease-in-out;
+  z-index: 20;
+}
+#visual div.share-wrapper.clicked {
+  overflow: visible;
+}
+#visual div.share-wrapper canvas {
+  position: relative;
+  z-index: 1;
+}
+#visual div.share-wrapper > a {
+  float: right;
+}
+#visual div.share-wrapper a {
+  position: relative;
+  display: block;
+  width: 38px;
+  height: 38px;
+}
+#visual div.share-wrapper a i {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../images/sp-hmg-mobile-basic-large.png) no-repeat;
+  background-size: 600px 400px;
+}
+#visual div.share-wrapper > a.activeBtn i {
+  background-position: 0 -50px;
+}
+#visual div.share-wrapper ul.share-list {
+  position: absolute;
+  right: 0;
+  top: -136px;
+  width: 38px;
+}
+
+#visual div.share-wrapper ul.share-list li {
+  margin-top: 5px;
+  margin-right: 10px;
+  opacity: 0;
+  transition: opacity 1s linear;
+}
+#visual div.share-wrapper.clicked ul.share-list li {
+  opacity: 1;
+}
+#visual div.share-wrapper ul.share-list li:first-child {
+  transition-delay: 0.4s;
+}
+#visual div.share-wrapper ul.share-list li:nth-child(2) {
+  transition-delay: 0.3s;
+}
+#visual div.share-wrapper ul.share-list li:last-child {
+  transition-delay: 0.2s;
+}
+#visual div.share-wrapper ul.share-list li a.shareFacebook i {
+  background-position: -249px -50px;
+}
+#visual div.share-wrapper ul.share-list li a.shareKakaotalk i {
+  background-position: -200px -50px;
+}
+#visual div.share-wrapper ul.share-list li a.copyLink i {
+  background-position: -300px -50px;
+}
+#visual div.control-box {
+  position: absolute;
+  left: 20px;
+  bottom: 14px;
+  height: 66px;
+  line-height: 66px;
+  z-index: 20;
+}
+#visual div.control-box > * {
+  float: left;
+}
+#visual div.control-box a.btnMotion {
+  position: relative;
+  width: 39px;
+  height: 39px;
+}
+#visual div.control-box a.btnMotion.pause {
+  margin-left: 10px;
+}
+a.btnMotion .icon {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 39px;
+  height: 39px;
+  background: url(../images/sp-hmg-mobile-basic-large.png) no-repeat 0 0;
+  background-size: 600px 400px;
+}
+a.btnMotion.prev .arrow-left {
+  background-position: -100px -50px;
+}
+a.btnMotion.next .arrow-right {
+  background-position: -150px -50px;
+}
+a.btnMotion.pause .icon-pause {
+  background-position: -350px -50px;
+}
+a.btnMotion.play .icon-pause {
+  background-position: -400px -50px;
+}
+#visual div.control-box > div.stateBar {
+  display: inline-block;
+  padding: 7px 13px;
+  vertical-align: middle;
+  color: #ffffff;
+}
+#visual div.control-box div.numBox {
+  font-size: 13px;
+  position: relative;
+  top: -20px;
+}
+#visual div.control-box div.numBox em {
+  font-size: 15px;
+}
+#visual div.control-box ul.indicator li.line {
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: #958b7b;
+  vertical-align: middle;
+}
+#visual div.control-box ul.indicator li.line.on {
+  width: 80px;
+  background: rgba(255, 255, 255, 1);
+}
+#visual div.control-box ul.indicator li.line + li.line {
+  margin-left: 6px;
+}
+
+/* -------- introduction -------- */
+#introduction {
+  padding: 100px 0;
+  background: #f5f5f5;
+}
+#introduction div.program-info {
+  margin: 0 auto;
+  text-align: center;
+  width: calc(100% - 40px);
+}
+#introduction div.program-info p.about {
+  font-size: 16px;
+  padding-bottom: 10px;
+  color: #222;
+  font-weight: 400;
+}
+#introduction div.program-info h2 {
+  font-size: 36px;
+  color: rgb(34, 34, 34);
+  line-height: 1;
+  margin-bottom: 17px;
+  font-weight: 700;
+}
+#introduction div.program-info p.desc {
+  font-size: 15px;
+  color: #6c6c6c;
+  line-height: 22px;
+}
+#introduction div.program-info a.btnMore {
+  display: inline-block;
+  width: 121px;
+  height: 33px;
+  line-height: 31px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  font-size: 13px;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+  opacity: 1;
+  margin-top: 13px;
+  border: 1px solid rgb(34, 34, 34);
+}
+#introduction div.program-info a.btnMore:hover {
+  color: #fff;
+  border: 1px solid #f25130;
+  background: linear-gradient(to right, #ff8933 0, #ea2e2e 100%);
+}
+
+/* -------- drivingAcademy -------- */
+#drivingAcademy {
+  padding: 89px 0 94px 0;
+  background: #151515;
+  position: relative;
+}
+#drivingAcademy div.bgLine div.line {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  background-color: #191919;
+}
+#drivingAcademy div.bgLine div.line.line1 {
+  left: calc(50% - 80px);
+}
+#drivingAcademy div.bgLine div.line.line2 {
+  left: 50%;
+}
+#drivingAcademy div.bgLine div.line.line3 {
+  left: calc(50% + 80px);
+}
+#drivingAcademy div.bgLine div.line div.innerLine {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 60%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.15) 25%, rgba(255, 255, 255, 0.15) 76%, rgba(255, 255, 255, 0.01) 99%, rgba(255, 255, 255, 0) 100%);
+}
+#drivingAcademy div.bgLine div.line:first-child div.innerLine {
+  animation: line-move-effect 2.5s linear 0s infinite normal forwards;
+}
+#drivingAcademy div.bgLine div.line:nth-child(2) div.innerLine {
+  animation: line-move-effect 2.5s linear 0.5s infinite normal forwards;
+}
+#drivingAcademy div.bgLine div.line:last-child div.innerLine {
+  animation: line-move-effect 2.5s linear 1s infinite normal forwards;
+}
+#drivingAcademy div.program-wrapper {
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  color: #fff;
+  position: relative;
+}
+#drivingAcademy div.program-wrapper div.program-intro {
+  text-align: center;
+}
+#drivingAcademy div.program-wrapper div.program-intro p.ready {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+#drivingAcademy div.program-wrapper div.program-intro h2.tit {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+#drivingAcademy div.program-wrapper div.program-intro p.desc {
+  font-size: 15px;
+  line-height: 21px;
+}
+#drivingAcademy div.program-wrapper ul.company-list {
+  overflow: hidden;
+  margin-top: 75px;
+}
+#drivingAcademy div.program-wrapper ul.company-list li {
+  float: left;
+  width: 32%;
+  position: relative;
+}
+#drivingAcademy div.program-wrapper ul.company-list li:after {
+  content: '';
+  display: block;
+  padding-top: 130%;
+}
+#drivingAcademy div.program-wrapper ul.company-list li a {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+#drivingAcademy div.program-wrapper ul.company-list li a div.imgArea {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+#drivingAcademy div.program-wrapper ul.company-list li:first-child a div.imgArea {
+  background: url(../images/hmg-main-academy-img-001.jpg) center/cover no-repeat;
+}
+#drivingAcademy div.program-wrapper ul.company-list li:nth-child(2) a div.imgArea {
+  background: url(../images/hmg-main-academy-img-002.jpg) center/cover no-repeat;
+}
+#drivingAcademy div.program-wrapper ul.company-list li:last-child a div.imgArea {
+  background: url(../images/hmg-main-academy-img-003.jpg) center/cover no-repeat;
+}
+#drivingAcademy div.program-wrapper ul.company-list li + li {
+  margin-left: 2%;
+}
+
+#drivingAcademy div.program-wrapper ul.company-list li a div.textArea {
+  position: absolute;
+  left: 18px;
+  top: 24px;
+  font-weight: 700;
+}
+#drivingAcademy div.program-wrapper ul.company-list li div.textArea * {
+  display: block;
+}
+#drivingAcademy div.program-wrapper ul.company-list li a div.textArea em {
+  font-size: 31px;
+}
+#drivingAcademy div.program-wrapper ul.company-list li a div.textArea span {
+  font-size: 15px;
+  margin-top: 8px;
+}
+#drivingAcademy div.program-wrapper ul.company-list li a div.textArea div.btnMore span {
+  display: inline-block;
+  width: 121px;
+  height: 33px;
+  line-height: 31px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  font-size: 13px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 20px;
+  opacity: 1;
+  transition: opacity 0.4s linear;
+  transition: bottom 0.4s linear;
+  position: relative;
+  bottom: 0;
+}
+#drivingAcademy div.program-wrapper ul.company-list li a div.textArea div.btnMore span:hover {
+  color: #fff;
+  border: 1px solid #f25130;
+  background: linear-gradient(to right, #ff8933 0, #ea2e2e 100%);
+}
+@media (max-width: 360px) {
+  #drivingAcademy div.program-wrapper ul.company-list li a div.textArea {
+    left: 8px;
+    top: 8px;
+  }
+  #drivingAcademy div.program-wrapper ul.company-list li a div.textArea em {
+    font-size: 17px;
+  }
+  #drivingAcademy div.program-wrapper ul.company-list li a div.textArea span {
+    font-size: 15px;
+    margin-top: 8px;
+  }
+  #drivingAcademy div.program-wrapper ul.company-list li a div.textArea div.btnMore span {
+    display: inline-block;
+    width: 121px;
+    height: 33px;
+    line-height: 31px;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    font-size: 13px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 20px;
+    opacity: 1;
+    transition: opacity 0.4s linear;
+    transition: bottom 0.4s linear;
+    position: relative;
+    bottom: 0;
+  }
+}
+@keyframes line-move-effect {
+  0% {
+    top: -10;
+  }
+  25% {
+    top: 25%;
+  }
+  50% {
+    top: 50%;
+  }
+  75% {
+    top: 75%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/* -------- drivingPleasure -------- */
+#drivingPleasure {
+  background: url(../images/main-section04-bg-m.jpg) no-repeat center center;
+  background-size: cover;
+  padding: 90px 0 40px 0;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+#drivingPleasure div.program-wrapper {
+  width: 100%;
+  height: 100%;
+}
+#drivingPleasure div.program-wrapper div.program-intro {
+  width: calc(100% - 40px);
+  margin: 0 auto 80px auto;
+}
+#drivingPleasure div.program-wrapper div.program-intro p.new {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+#drivingPleasure div.program-wrapper div.program-intro h2.tit {
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 17px;
+}
+#drivingPleasure div.program-wrapper div.program-intro p.desc {
+  font-size: 15px;
+}
+
+#drivingPleasure div.program-wrapper ul.program-list {
+  max-width: 640px;
+  padding: 0 20px;
+}
+#drivingPleasure ul.program-list li {
+  float: none;
+  width: 100%;
+  height: 120px;
+  position: relative;
+  transition: height 0.5s;
+}
+#drivingPleasure ul.program-list li + li {
+  margin-top: 5px;
+}
+#drivingPleasure ul.program-list li:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(50% - 5px);
+  right: 17px;
+  z-index: 10;
+  width: 14px;
+  height: 9px;
+  background: url(../images/pleasure-icon-m.png);
+  background-size: 14px 20px;
+  background-position: 0 -11px;
+}
+#drivingPleasure ul.program-list li .mobileClick {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+#drivingPleasure ul.program-list li .mobileClick span {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  font-size: 0;
+}
+#drivingPleasure ul.program-list li a {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+#drivingPleasure ul.program-list li a div.txtArea {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  padding: 0 56px;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  line-height: 1;
+  transform: translateY(-50%);
+  box-sizing: border-box;
+}
+#drivingPleasure ul.program-list li a div.txtArea p.desc {
+  padding: 0;
+  display: none;
+}
+#drivingPleasure ul.program-list li a h3.tit {
+  font-size: 25px;
+}
+#drivingPleasure ul.program-list li a div.txtArea div.btnMore {
+  width: 121px;
+  height: 33px;
+  line-height: 31px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  font-size: 13px;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 20px auto 0 auto;
+  display: none;
+}
+#drivingPleasure ul.program-list li a div.txtArea div.btnMore:hover {
+  color: #fff;
+  border: 1px solid #f25130;
+  background: linear-gradient(to right, #ff8933 0, #ea2e2e 100%);
+}
+
+#drivingPleasure ul.program-list li a div.imgArea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: center top/cover no-repeat #fff;
+}
+#drivingPleasure ul.program-list li a div.imgArea div.offImg {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: center top/cover no-repeat #fff;
+  transition: all 0.3s ease-in-out;
+}
+#drivingPleasure ul.program-list li:first-child a div.imgArea {
+  background: url(../images/hmg-main-pleasure-img-001-m.jpg) center top/cover no-repeat;
+}
+#drivingPleasure ul.program-list li:first-child a div.imgArea div.offImg {
+  background: url(../images/hmg-main-pleasure-img-001-off-m.jpg) center/cover no-repeat;
+}
+#drivingPleasure ul.program-list li:nth-child(2) a div.imgArea {
+  background: url(../images/hmg-main-pleasure-img-002-m.jpg) center top/cover no-repeat;
+}
+#drivingPleasure ul.program-list li:nth-child(2) a div.imgArea div.offImg {
+  background: url(../images/hmg-main-pleasure-img-002-off-m.jpg) center/cover no-repeat;
+}
+#drivingPleasure ul.program-list li:nth-child(3) a div.imgArea {
+  background: url(../images/hmg-main-pleasure-img-003-m.jpg) center top/cover no-repeat;
+}
+#drivingPleasure ul.program-list li:nth-child(3) a div.imgArea div.offImg {
+  background: url(../images/hmg-main-pleasure-img-003-off-m.jpg) center/cover no-repeat;
+}
+#drivingPleasure ul.program-list li:last-child a div.imgArea {
+  background: url(../images/hmg-main-pleasure-img-004-m.jpg) center top/cover no-repeat;
+}
+#drivingPleasure ul.program-list li:last-child a div.imgArea div.offImg {
+  background: url(../images/hmg-main-pleasure-img-004-off-m.jpg) center/cover no-repeat;
+}
+#drivingPleasure ul.program-list li.active {
+  height: 340px;
+}
+#drivingPleasure ul.program-list li.active:before {
+  background-position: 0 0;
+}
+#drivingPleasure ul.program-list li.active .mobileClick {
+  top: calc(50% - 4px);
+  right: 17px;
+  left: auto;
+  width: 14px;
+  height: 9px;
+}
+#drivingPleasure ul.program-list li.active .mobileClick:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+}
+#drivingPleasure ul.program-list li.active a div.txtArea p.desc {
+  display: block;
+  margin-top: 10px;
+}
+#drivingPleasure ul.program-list li.active a div.txtArea div.btnMore {
+  display: block;
+  margin-top: 20px;
+}
+#drivingPleasure ul.program-list li.active div.imgArea div.offImg {
+  opacity: 0;
+}
+/* -------- nFestival -------- */
+#nFestival {
+  padding-top: 56px;
+  height: 570px;
+  color: #fff;
+  position: relative;
+  box-sizing: border-box;
+}
+#nFestival div.background {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  background: url(../images/hmg-main-n-festival-bg.jpg) center 80% / cover no-repeat;
+  z-index: -1;
+}
+#nFestival div.festival-wrapper {
+  width: calc(100% - 40px);
+  margin: 0 auto;
+}
+#nFestival div.festival-wrapper div.festival-info p.enjoy {
+  font-size: 16px;
+}
+#nFestival div.festival-wrapper div.festival-info h2.tit {
+  font-size: 36px;
+  line-height: 1;
+  margin-top: 12px;
+}
+#nFestival div.festival-wrapper div.festival-info p.desc {
+  font-size: 15px;
+  line-height: 20px;
+  margin-top: 11px;
+}
+#nFestival div.festival-wrapper div.festival-info a.btnMore {
+  display: block;
+  width: 121px;
+  height: 33px;
+  line-height: 31px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  font-size: 13px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 18px;
+}
+#nFestival div.festival-wrapper div.festival-info a.btnMore:hover {
+  color: #fff;
+  border: 1px solid #f25130;
+  background: linear-gradient(to right, #ff8933 0, #ea2e2e 100%);
+}
+
+/* -------- news -------- */
+#news {
+  background: #000000;
+  font-size: 16px;
+  position: relative;
+  z-index: 200;
+}
+#news div.news-wrapper {
+  padding: 20px;
+  height: auto;
+  border-bottom: 1px solid #444;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+#news div.news-wrapper div.news-info h3 {
+  font-size: 14px;
+  line-height: 30px;
+}
+#news div.news-wrapper div.news-info h3 a {
+  position: relative;
+  display: inline-block;
+  padding-right: 15px;
+  color: #fff;
+}
+#news div.news-wrapper div.news-info h3 a:after {
+  content: '';
+  width: 9px;
+  height: 15px;
+  background: url(../images/sp-hmg-mobile-basic-small.png) -150px -25px no-repeat;
+  background-position: -150px -25px;
+  background-size: 300px auto;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#news div.news-wrapper div.news-info div.swiper-container {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 100vw;
+  line-height: normal;
+  position: relative;
+}
+#news div.news-wrapper div.news-info div.swiper-container div.swiper-wrapper > div {
+  float: left;
+}
+
+div.swiper-container div.swiper-wrapper > div {
+  width: 70vw;
+  font-size: 18px;
+}
+div.swiper-container div.swiper-wrapper > div + div {
+  margin-left: 30vw;
+}
+div.swiper-container div.swiper-wrapper > div a {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 너비가 줄어들 때 글자들이 흘러 넘치면 ...으로 보이게 한다. */
+  white-space: nowrap;
+  /* 너비가 줄어들 때 글자가 아래로 떨어지지 않게 한다. */
+  /* overflow, text-overflow, white-space가 set */
+  color: #fff;
+  font-size: 14px;
+}
+div.swiper-container div.swiper-wrapper > div span.date {
+  display: block;
+  font-size: 14px;
+  line-height: 30px;
+}
+#news div.indicator-box {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+div.swiper-container div.swiper-wrapper #indicator {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#indicator li {
+  display: inline-block;
+  width: 10px;
+  height: 2px;
+  margin: 0 2px;
+  background: #333;
+  position: relative;
+}
+#indicator li.active {
+  width: 40px;
+  background: #fff;
+}
+
+/* -------- footer -------- */
+#footer {
+  background: #000000;
+  padding: 40px 0 90px;
+  position: relative;
+  z-index: 200;
+}
+#footer div.inner {
+  width: calc(100% - 60px);
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+}
+#footer div.inner ul.links {
+  overflow: hidden;
+}
+#footer div.inner ul.links li {
+  float: left;
+  position: relative;
+}
+#footer div.inner ul.links li:first-child {
+  padding-right: 12px;
+}
+#footer div.inner ul.links li:nth-child(2) {
+  color: #ffffff;
+}
+#footer div.inner ul.links li + li {
+  padding: 0 12px;
+}
+#footer div.inner ul.links li:last-child {
+  padding-left: 12px;
+}
+#footer div.inner ul.links li:not(:last-child):before {
+  content: '';
+  width: 1px;
+  height: 20px;
+  background: #444444;
+  position: absolute;
+  right: 0;
+  bottom: 3px;
+}
+#footer div.inner ul.links li a {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+}
+#footer div.inner div.siteArea {
+  margin-top: 20px;
+}
+#footer div.inner div.siteArea div.familyCont {
+  border: 1px solid #676767;
+  width: 100%;
+}
+#footer div.inner div.siteArea div.familyCont div.formGroup {
+  float: left;
+  width: calc(100% - 80px);
+  height: 37px;
+  position: relative;
+}
+#footer div.inner div.siteArea div.familyCont div.formGroup #fmlsite {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 5px 40px 5px 15px;
+  line-height: 25px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+}
+#footer div.inner div.siteArea div.familyCont div.formGroup:after {
+  display: block;
+  content: '▼';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  background: none;
+}
+#footer div.inner div.siteArea div.familyCont a {
+  float: left;
+  width: 80px;
+  height: 37px;
+  line-height: 37px;
+  text-align: center;
+  background: #ffffff;
+  font-size: 14px;
+}
+#footer div.inner div.siteArea div.familyCont a:hover {
+  color: #fff;
+  background: linear-gradient(to right, #ff8933, #ea2e2e);
+}
+select {
+  -webkit-appearance: none; /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  font-size: 18px;
+}
+
+#footer div.inner div.siteArea ul.snsCont {
+  margin-top: 20px;
+  text-align: center;
+}
+#footer div.inner div.siteArea ul.snsCont li {
+  display: inline-block;
+  position: relative;
+}
+#footer div.inner div.siteArea ul.snsCont li:first-child {
+  top: 2px;
+}
+#footer div.inner div.siteArea ul.snsCont li + li {
+  margin-left: 24px;
+}
+#footer div.inner div.siteArea ul.snsCont li:first-child:after {
+  display: block;
+  content: '';
+  position: absolute;
+  right: -14px;
+  top: 1px;
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.4);
+}
+#footer div.inner div.siteArea ul.snsCont li a {
+  display: block;
+  background: url(../images/sp-hmg-mobile-basic-small.png);
+  background-size: 300px 250px;
+}
+#footer div.inner div.siteArea ul.snsCont li:first-child a {
+  width: 9px;
+  height: 17px;
+  background-position: 0 -75px;
+}
+#footer div.inner div.siteArea ul.snsCont li:nth-child(2) a {
+  width: 21px;
+  height: 15px;
+  background-position: -25px -75px;
+}
+#footer div.inner address.companys {
+  margin-top: 16px;
+  width: 100%;
+}
+#footer div.inner address.companys div.company {
+  display: block;
+  overflow: hidden;
+}
+#footer div.inner address.companys > div + div {
+  margin-top: 22px;
+}
+address.companys div.company h4.company-name {
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+}
+address.companys div.company:nth-child(n + 3) h4.company-name {
+  font-size: 14px;
+}
+address.companys div.company div.company-info {
+  width: 100%;
+  color: #999;
+}
+address.companys div.company div.company-info p {
+  display: inline-block;
+  color: #999999;
+  font-size: 11px;
+  line-height: 16px;
+}
+address.companys div.company div.company-info p {
+  margin-right: 20px;
+}
+#footer div.inner p.copyright {
+  margin-top: 17px;
+  font-size: 11px;
+  color: #999999;
+}
+#footer #back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 14px;
+  color: #fff;
+  background: #23272a;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  opacity: 0;
+  transition: opacity 0.4s;
+}

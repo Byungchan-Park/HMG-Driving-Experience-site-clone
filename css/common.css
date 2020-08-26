@@ -33,7 +33,15 @@ body {
 }
 
 .up-on-scroll {
+  opacity: 0;
+  transform: translateY(70px);
+  -ms-transform: translateY(70px);
   transition: transform 0.7s, opacity 1s;
+}
+.up-on-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+  -ms-transform: translateY(0);
 }
 
 .hidden {

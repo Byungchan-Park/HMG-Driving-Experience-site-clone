@@ -327,7 +327,7 @@ body.gnb-active {
   font-weight: 700;
   background: linear-gradient(to right, #ff8933 0, #ea2e2e 100%);
   color: #fff;
-  /* z-index: 1000; */
+  z-index: 1000;
 }
 
 /* -------- visual -------- */
@@ -498,7 +498,7 @@ body.gnb-active {
   width: 39px;
   height: 39px;
 }
-#visual div.control-box a.btnMotion.pause {
+#visual div.control-box a.btnMotion:last-child {
   margin-left: 10px;
 }
 a.btnMotion .icon {
@@ -746,33 +746,12 @@ a.btnMotion.play .icon-pause {
   background: linear-gradient(to right, #ff8933 0, #ea2e2e 100%);
 }
 @media (max-width: 360px) {
-  #drivingAcademy div.program-wrapper ul.company-list li a div.textArea {
-    left: 8px;
-    top: 8px;
+  #drivingAcademy div.program-wrapper ul.company-list li {
+    float: none;
+    width: 100%;
   }
-  #drivingAcademy div.program-wrapper ul.company-list li a div.textArea em {
-    font-size: 17px;
-  }
-  #drivingAcademy div.program-wrapper ul.company-list li a div.textArea span {
-    font-size: 15px;
-    margin-top: 8px;
-  }
-  #drivingAcademy div.program-wrapper ul.company-list li a div.textArea div.btnMore span {
-    display: inline-block;
-    width: 121px;
-    height: 33px;
-    line-height: 31px;
-    border: 1px solid #fff;
-    border-radius: 50px;
-    font-size: 13px;
-    box-sizing: border-box;
-    text-align: center;
+  #drivingAcademy div.program-wrapper ul.company-list li + li {
     margin-top: 20px;
-    opacity: 1;
-    transition: opacity 0.4s linear;
-    transition: bottom 0.4s linear;
-    position: relative;
-    bottom: 0;
   }
 }
 @keyframes line-move-effect {
@@ -1240,7 +1219,6 @@ select {
   -webkit-appearance: none; /* 네이티브 외형 감추기 */
   -moz-appearance: none;
   appearance: none;
-  outline: none;
   font-size: 18px;
 }
 

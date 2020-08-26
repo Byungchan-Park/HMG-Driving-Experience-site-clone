@@ -1,7 +1,9 @@
 'use strict'
 
 var swiperWrap = document.querySelector('.swiper-wrapper')
+var swiperContainer = document.querySelector('.swiper-container')
 var swiperElems = document.querySelectorAll('.swiper-wrapper div')
+var controlBox = document.querySelector('#news p.control')
 var prevBtn = document.querySelector('#news p.control a.btnPrev')
 var pauseBtn = document.querySelector('#news p.control a.btnPause')
 var nextBtn = document.querySelector('#news p.control a.btnNext')
@@ -28,32 +30,60 @@ window.addEventListener('resize', function () {
   outerWidth = parseFloat(width) + parseFloat(margin)
 })
 
-prevBtn.addEventListener('click', function () {
+controlBox.addEventListener('click', function (event) {
+  var target = event.target.closest('a')
+
+  if (!target) return
+  if (!controlBox.contains(target)) return
+
+  switch (target.className) {
+    case 'btnPrev':
+      handlePrevBtn()
+      break
+    case 'btnNext':
+      handleNextBtn()
+      break
+    case 'btnPause':
+      handlePauseBtn()
+      break
+    case 'btnPlay':
+      handlePlayBtn()
+      break
+  }
+
+  event.preventDefault()
+})
+swiperWrap.addEventListener('mousedown', function (event) {})
+
+function handlePrevBtn() {
   newsCount--
   newsCount = Math.max(newsCount, 0)
   showNews()
-})
-nextBtn.addEventListener('click', function () {
+}
+
+function handleNextBtn() {
   newsCount++
   newsCount = Math.min(newsCount, lastNewsNum)
   showNews()
-})
-pauseBtn.addEventListener('click', function () {
+}
+
+function handlePauseBtn() {
   if (isTimerOn2 === true) {
-    this.classList.add('off')
+    pauseBtn.classList.add('off')
     playBtn.classList.add('on')
     clearInterval(timerId2)
     isTimerOn2 = false
   }
-})
-playBtn.addEventListener('click', function () {
+}
+
+function handlePlayBtn() {
   if (isTimerOn2 === false) {
-    this.classList.remove('on')
+    playBtn.classList.remove('on')
     pauseBtn.classList.remove('off')
     isTimerOn2 = true
     showNews()
   }
-})
+}
 
 // for a mobile version
 // each indicator button works when clicks
@@ -96,6 +126,47 @@ function showNews() {
   }
 }
 
+swipeNewsSection(swiperContainer)
+
+function swipeNewsSection(selector) {
+  var startX = 0
+  var delX = 0
+  var offsetX = 0
+
+  selector.addEventListener('mousedown', function (e) {
+    e.preventDefault()
+    swiperWrap.style.transition = 'none'
+    clearTimeout(timerID)
+    startX = e.clientX
+    offsetX = positionChange
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseup', handleMouseUp)
+  })
+
+  function handleMouseMove(e) {
+    delX = e.clientX - startX
+    if ((newsCount === 0 && delX > 0) || (newsCount === lastNewsNum && delX < 0)) {
+      // delX > 0 : 오른쪽 방향으로 넘길 때, delX < 0 : 왼쪽 방향으로 넘길 때
+      delX = delX / 10
+      // 본인의 변화량보다 10분의 1만 움직이게!!!
+    }
+    swiperWrap.style.transform = 'translate3d(' + (delX - offsetX) + 'px, 0, 0)'
+  }
+  function handleMouseUp() {
+    if (delX < -50 && newsCount !== lastNewsNum - 1) {
+      newsCount++
+      showNews()
+    } else if (delX > 50 && newsCount !== 0) {
+      newsCount--
+      showNews()
+    } else {
+      showNews()
+    }
+    document.removeEventListener('mousemove', handleMouseMove)
+    document.removeEventListener('mouseup', handleMouseUp)
+  }
+}
+
 function isWholeWidth() {
   var widthSum = 0
   var marginSum = 0
@@ -104,11 +175,11 @@ function isWholeWidth() {
 
   for (var i = 0; i < swiperElems.length; i++) {
     widthProp = window.getComputedStyle(swiperElems[i]).width.replace('px', '')
-    widthSum += Number(widthProp)
+    widthSum += parseFloat(widthProp)
     marginLeftProp = window.getComputedStyle(swiperElems[i]).marginLeft.replace('px', '')
 
     if (marginLeftProp) {
-      marginSum += Number(marginLeftProp)
+      marginSum += parseFloat(marginLeftProp)
     }
   }
 

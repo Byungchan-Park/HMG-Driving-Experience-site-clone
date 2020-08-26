@@ -82,7 +82,7 @@
       </header>
       <main id="main">
         <a href="#" class="reservation mobile">예약하기</a>
-        <section id="visual" class="container">
+        <section id="visual" class="container scroll-page">
           <ol class="slide-container">
             <li class="slide" id="first-slide">
               <video id="mainMovie" muted="true" autoplay playsinline loop preload="auto">
@@ -146,21 +146,6 @@
                 <span>5</span>
               </div>
               <ul class="indicator pc">
-                <!-- <li class="line on">
-                  <a href="#" class="hidden">첫번째 슬라이드</a>
-                </li>
-                <li class="line">
-                  <a href="#" class="hidden">두번째 슬라이드</a>
-                </li>
-                <li class="line">
-                  <a href="#" class="hidden">세번째 슬라이드</a>
-                </li>
-                <li class="line">
-                  <a href="#" class="hidden">네번째 슬라이드</a>
-                </li>
-                <li class="line">
-                  <a href="#" class="hidden">다섯번째 슬라이드</a>
-                </li> -->
               </ul>
             </div>
             
@@ -174,51 +159,6 @@
               <span class="ir-hidden">일시정지</span>
               <canvas id="btnVisualPause" class="pc" width="70" height="70"></canvas>
             </a>
-          </div>
-                    
-          <div id="quickMove" data-section="section1" class="pc">
-            <ol class="sectionMoveBar">
-              <li>
-                <a href="#">
-                  <span class="hoverText">Home</span>
-                </a>
-                <a href="#">
-                  <span class="blind">현재 영역</span>
-                </a>
-              </li>
-              <li>
-                <a href="#drivingAcademy">
-                  <span class="hoverText">Academy</span>
-                </a>
-                <a href="#drivingAcademy">
-                  <span class="blind">현재 영역</span>
-                </a>
-              </li>
-              <li>
-                <a href="#drivingPleasure">
-                  <span class="hoverText">Pleasure</span>
-                </a>
-                <a href="#drivingPleasure">
-                  <span class="blind">현재 영역</span>
-                </a>
-              </li>
-              <li>
-                <a href="#nFestival">
-                  <span class="hoverText">N Festival</span>
-                </a>
-                <a href="#nFestival">
-                  <span class="blind">현재 영역</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span class="hoverText">SNS</span>
-                </a>
-                <a href="#">
-                  <span class="blind">현재 영역</span>
-                </a>
-              </li>
-            </ol>
           </div>
 
           <div class="share-wrapper clearfix">
@@ -261,7 +201,7 @@
             </div>  
         </section>
 
-        <section id="drivingAcademy">
+        <section id="drivingAcademy" class="scroll-page">
           <div class="bgLine">
             <div class="line line1">
               <div class="innerLine"></div>
@@ -320,7 +260,7 @@
           </div>
         </section>
 
-        <section id="drivingPleasure">
+        <section id="drivingPleasure" class="scroll-page">
           <div class="program-wrapper">
             <div class="program-intro"">
               <p class="new up-on-scroll">New Experience</p>
@@ -402,7 +342,7 @@
             </ul>
           </div>
         </section>
-        <section id="nFestival">
+        <section id="nFestival" class="scroll-page">
           <div class="background"></div>
           <div class="festival-wrapper">
             <div class="festival-info">
@@ -493,14 +433,14 @@
                 </div>
                 
                 <p class="control pc">
-                  <a href="#" class="btnPrev">
+                  <a href="#" class="btnPrev" data->
                     <span class="hidden">이전</span>
                   </a>
                   <a href="#" class="btnPause">
                     <span class="hidden">일시정지</span>
                   </a>
                   <a href="#" class="btnPlay">
-                    <span class="hidden">일시정지</span>
+                    <span class="hidden">재생</span>
                   </a>
                   <a href="#" class="btnNext">
                     <span class="hidden">다음</span>
@@ -606,12 +546,56 @@
         </div>
         <a href="#" id="back-to-top" class="pc">Top</a>
       </footer>
+      <div id="quickMove" data-section="section1" class="pc">
+        <ol class="sectionMoveBar">
+          <li>
+            <a href="#visual">
+              <span class="hoverText">Home</span>
+            </a>
+            <a href="#visual">
+              <span class="blind">현재 영역</span>
+            </a>
+          </li>
+          <li>
+            <a href="#drivingAcademy">
+              <span class="hoverText">Academy</span>
+            </a>
+            <a href="#drivingAcademy">
+              <span class="blind">현재 영역</span>
+            </a>
+          </li>
+          <li>
+            <a href="#drivingPleasure">
+              <span class="hoverText">Pleasure</span>
+            </a>
+            <a href="#drivingPleasure">
+              <span class="blind">현재 영역</span>
+            </a>
+          </li>
+          <li>
+            <a href="#nFestival">
+              <span class="hoverText">N Festival</span>
+            </a>
+            <a href="#nFestival">
+              <span class="blind">현재 영역</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="hoverText">SNS</span>
+            </a>
+            <a href="#">
+              <span class="blind">현재 영역</span>
+            </a>
+          </li>
+        </ol>
+      </div>
     </div>
     <script src="./js/common.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/visual.js"></script>
     <script src="./js/scroll.js"></script>
-    <script src="./js/drivingPleasure.js"></script>
+    <script src="./js/drivingPleasure_mobile.js"></script>
     <script src="./js/canvas.js"></script>
     <script src="./js/news.js"></script>
   </body>

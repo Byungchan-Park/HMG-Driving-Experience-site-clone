@@ -8,6 +8,7 @@ var shareWrapper = document.querySelector('.share-wrapper')
 var gnbBox = document.querySelector('#gnb > nav > ul')
 var subMenu = document.querySelectorAll('#gnb > nav > ul > li > ul')
 var bottomMenu = document.querySelector('#gnb > ul')
+var reservationMobileBtn = document.querySelector('a.reservation.mobile')
 
 var isClicked = false
 var anchor
@@ -15,18 +16,20 @@ var totalHeight = 0
 
 // 이벤트 위임 이용
 gnbBox.addEventListener('click', function (event) {
-  var gnbBoxHeight = window.getComputedStyle(gnbBox).height.replace('px', '')
-  anchor = event.target.closest('a')
-  if (!anchor) return
-  if (!gnbBox.contains(anchor)) return
-  showSubmenu(anchor)
+  if (window.innerWidth <= 850) {
+    var gnbBoxHeight = window.getComputedStyle(gnbBox).height.replace('px', '')
+    anchor = event.target.closest('a')
+    if (!anchor) return
+    if (!gnbBox.contains(anchor)) return
+    showSubmenu(anchor)
 
-  if (getGnbmenuHeight() > gnbBoxHeight) {
-    gnbBox.style.overflowY = 'auto'
-  } else {
-    gnbBox.style.overflowY = 'hidden'
+    if (getGnbmenuHeight() > gnbBoxHeight) {
+      gnbBox.style.overflowY = 'auto'
+    } else {
+      gnbBox.style.overflowY = 'hidden'
+    }
+    totalHeight = 0
   }
-  totalHeight = 0
 })
 
 function showSubmenu(anchor) {
@@ -58,9 +61,7 @@ function getGnbmenuHeight() {
 
 gnbBtn.addEventListener('click', showGnb)
 
-activeBtn.addEventListener('click', function () {
-  showShareItems()
-})
+activeBtn.addEventListener('click', showShareItems)
 
 function showGnb() {
   gnbBtn.classList.toggle('btnClose')
@@ -69,11 +70,18 @@ function showGnb() {
 
   if (header.className === 'on') {
     // works for the pc version
-    header.addEventListener('transitionend', function () {
-      gnb.className = 'show'
-    })
+    if (window.innerWidth > 850) {
+      header.addEventListener('transitionend', function () {
+        gnb.className = 'show'
+      })
+    } else {
+      reservationMobileBtn.style.zIndex = 0
+    }
   } else {
     gnb.className = undefined
+    if (window.innerWidth <= 850) {
+      reservationMobileBtn.style.zIndex = 1000
+    }
   }
 }
 

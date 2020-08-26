@@ -3,28 +3,52 @@
 var header = document.getElementById('header')
 var btt = document.getElementById('back-to-top')
 var docElem = document.documentElement
+var quickMoveBar = document.querySelector('#quickMove ol.sectionMoveBar')
 
 var zoom = 0.66
 
 var scrollPosPrev = 0
 
+docElem.scrollTop = 1800
+
 window.addEventListener('scroll', function () {
   var scrollPosCurrent = docElem.scrollTop || window.scrollY
-
   var direction = scrollPosCurrent - scrollPosPrev > 0 ? 1 : -1
 
   scrollPosPrev = scrollPosCurrent
 
+  if (window.innerWidth > 850) {
+    scrollEffect.showElementUp()
+    scrollEffect.changeBarStatus(scrollPosCurrent)
+    scrollEffect.showBttBtn(scrollPosCurrent)
+    scrollEffect.controlBg(scrollPosCurrent, direction)
+  }
   scrollEffect.changeHeaderBg(scrollPosCurrent)
-  scrollEffect.showElementUp()
-  scrollEffect.changeBarStatus(scrollPosCurrent)
-  scrollEffect.showBttBtn(scrollPosCurrent)
-  scrollEffect.controlBg(scrollPosCurrent, direction)
 })
 
 btt.addEventListener('click', function (event) {
   event.preventDefault()
   scrollEffect.backToTop(scrollPosPrev)
+})
+
+quickMoveBar.addEventListener('click', function (e) {
+  let target = e.target.closest('a')
+  if (!target) return
+  if (!this.contains(target)) return
+
+  var sectionElems = document.querySelectorAll('.scroll-page')
+  console.log(sectionElems)
+  var sectionPositions = []
+  for (var sectionElem of sectionElems) {
+    var absoluteTop = Math.floor(window.pageYOffset + sectionElem.getBoundingClientRect().top)
+    sectionPositions.push(absoluteTop)
+  }
+  ;['#visual', '#drivingAcademy', '#drivingPleasure', '#nFestival'].forEach(function (section, i) {
+    if (section === target.getAttribute('href')) {
+      window.scrollTo(0, sectionPositions[i])
+      document.querySelector('#quickMove').setAttribute('data-section', `section${i + 1}`)
+    }
+  })
 })
 
 var scrollEffect = {
@@ -67,16 +91,9 @@ var scrollEffect = {
     elemsArray.forEach(function (elem) {
       var domElement = elems[elem.index]
 
-      if (isElementUnderBottom(domElement, -20)) {
-        // 브라우저의 화면 상에서 docElement가 보이지 않는다면,
-        domElement.style.opacity = '0'
-        domElement.style.transform = 'translateY(70px)'
-        domElement.style['-ms-transform'] = 'translateY(70px)'
-      } else {
-        // 브라우저의 화면 상에서 docElement가 보이기 시작하면,
-        domElement.style.opacity = '1'
-        domElement.style.transform = 'translateY(0px)'
-        domElement.style['-ms-transform'] = 'translateY(0px)'
+      if (!isElementUnderBottom(domElement, -20)) {
+        // 브라우저의 화면 상에서 docElement가 보인다면,
+        domElement.classList.add('show')
       }
     })
 
@@ -87,15 +104,20 @@ var scrollEffect = {
     // element가 스크린 아래쪽에 있는지를 검사한다.
   },
   changeBarStatus: function (scrollPosCurrent) {
-    var quickMoveBar = document.getElementById('quickMove')
-
-    if (scrollPosCurrent < 1200) {
+    var quickMoveBar = document.querySelector('#quickMove')
+    var sectionElems = document.querySelectorAll('.scroll-page')
+    var sectionPositions = []
+    for (var sectionElem of sectionElems) {
+      var absoluteTop = Math.floor(window.pageYOffset + sectionElem.getBoundingClientRect().top - sectionElem.offsetHeight / 2)
+      sectionPositions.push(absoluteTop)
+    }
+    if (scrollPosCurrent < sectionPositions[1]) {
       quickMoveBar.setAttribute('data-section', 'section1')
-    } else if (scrollPosCurrent > 1200 && scrollPosCurrent < 2600) {
+    } else if (scrollPosCurrent < sectionPositions[2]) {
       quickMoveBar.setAttribute('data-section', 'section2')
-    } else if (scrollPosCurrent > 2600 && scrollPosCurrent < 3900) {
+    } else if (scrollPosCurrent < sectionPositions[3]) {
       quickMoveBar.setAttribute('data-section', 'section3')
-    } else if (scrollPosCurrent > 3900) {
+    } else if (scrollPosCurrent > sectionPositions[3]) {
       quickMoveBar.setAttribute('data-section', 'section4')
     }
   },
@@ -109,9 +131,9 @@ var scrollEffect = {
 
     btt.className = scrollPosCurrent > offset ? 'visible' : '' // 스크롤 이벤트에 따라 quickMoveBar 이미지 변경
   },
-  backToTop: function (scrollPosPrev) {
+  backToTop: function () {
     var scrollInterval = setInterval(function () {
-      if (scrollPosPrev !== 0) {
+      if (window.pageYOffset !== 0) {
         window.scrollBy(0, -55)
       } else {
         clearInterval(scrollInterval)

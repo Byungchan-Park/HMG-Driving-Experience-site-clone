@@ -55,6 +55,39 @@ visualNextBtn.addEventListener('click', function () {
 visualStopBtn.addEventListener('click', function () {
   changeBtnAction()
 })
+swipeVisualSection(slideContainer)
+
+function swipeVisualSection(selector) {
+  var startX = 0
+  var delX = 0
+  var offsetX = 0
+
+  selector.addEventListener('mousedown', function (e) {
+    e.preventDefault()
+    this.style.transition = 'none'
+    clearTimeout(timerID)
+    startX = e.clientX
+    offsetX = this.style.left
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseup', handleMouseUp)
+  })
+
+  function handleMouseMove(e) {
+    delX = e.clientX - startX
+    selector.style.left = `calc(${offsetX} + ${delX}px)`
+  }
+  function handleMouseUp() {
+    if (delX < -200) {
+      showSlide(nextSlide)
+    } else if (delX > 200) {
+      showSlide(prevSlide)
+    } else {
+      showSlide(currentSlide)
+    }
+    document.removeEventListener('mousemove', handleMouseMove)
+    document.removeEventListener('mouseup', handleMouseUp)
+  }
+}
 
 // Slide appears per every timerSpeed seconds
 // n => slideNumber which is showed on the screen

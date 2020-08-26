@@ -46,11 +46,13 @@ function hoverEffectCanvas(e, n) {
   })
 }
 
-hoverEffectCanvas('btnVisualPrev', 30)
-hoverEffectCanvas('btnVisualNext', 30)
-hoverEffectCanvas('btnVisualPause', 30)
-hoverEffectCanvas('btnShare', 29)
-hoverEffectCanvas('btnShareFacebook', 29)
-hoverEffectCanvas('btnShareKakaotalk', 29)
-hoverEffectCanvas('btnShareLink', 29)
-hoverEffectCanvas('btnGnb', 29)
+if (window.innerWidth > 850) {
+  hoverEffectCanvas('btnVisualPrev', 30)
+  hoverEffectCanvas('btnVisualNext', 30)
+  hoverEffectCanvas('btnVisualPause', 30)
+  hoverEffectCanvas('btnShare', 29)
+  hoverEffectCanvas('btnShareFacebook', 29)
+  hoverEffectCanvas('btnShareKakaotalk', 29)
+  hoverEffectCanvas('btnShareLink', 29)
+  hoverEffectCanvas('btnGnb', 29)
+}

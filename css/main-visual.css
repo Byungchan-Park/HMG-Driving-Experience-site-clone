@@ -80,7 +80,7 @@
   font-weight: 400;
 }
 
-#visual #quickMove {
+#quickMove {
   position: fixed;
   right: 34px;
   top: calc(50vh - 184px);

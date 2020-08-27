@@ -9,8 +9,6 @@ var zoom = 0.66
 
 var scrollPosPrev = 0
 
-docElem.scrollTop = 1800
-
 window.addEventListener('scroll', function () {
   var scrollPosCurrent = docElem.scrollTop || window.scrollY
   var direction = scrollPosCurrent - scrollPosPrev > 0 ? 1 : -1
@@ -32,21 +30,28 @@ btt.addEventListener('click', function (event) {
 })
 
 quickMoveBar.addEventListener('click', function (e) {
-  let target = e.target.closest('a')
+  var target = (function () {
+    if (Element.prototype.closest) {
+      return e.target.closest('a')
+    } else {
+      if (e.target.parentNode.nodeName === 'A') return e.target.parentNode
+    }
+  })()
   if (!target) return
   if (!this.contains(target)) return
 
   var sectionElems = document.querySelectorAll('.scroll-page')
-  console.log(sectionElems)
+  var numSectionElems = sectionElems.length
   var sectionPositions = []
-  for (var sectionElem of sectionElems) {
-    var absoluteTop = Math.floor(window.pageYOffset + sectionElem.getBoundingClientRect().top)
+  var sections = ['#visual', '#drivingAcademy', '#drivingPleasure', '#nFestival']
+  for (var i = 0; i < numSectionElems; i++) {
+    var absoluteTop = Math.floor(window.pageYOffset + sectionElems[i].getBoundingClientRect().top)
     sectionPositions.push(absoluteTop)
   }
-  ;['#visual', '#drivingAcademy', '#drivingPleasure', '#nFestival'].forEach(function (section, i) {
+  sections.forEach(function (section, i) {
     if (section === target.getAttribute('href')) {
       window.scrollTo(0, sectionPositions[i])
-      document.querySelector('#quickMove').setAttribute('data-section', `section${i + 1}`)
+      document.querySelector('#quickMove').setAttribute('data-section', 'section' + i + 1)
     }
   })
 })
@@ -106,9 +111,10 @@ var scrollEffect = {
   changeBarStatus: function (scrollPosCurrent) {
     var quickMoveBar = document.querySelector('#quickMove')
     var sectionElems = document.querySelectorAll('.scroll-page')
+    var numSectionElems = sectionElems.length
     var sectionPositions = []
-    for (var sectionElem of sectionElems) {
-      var absoluteTop = Math.floor(window.pageYOffset + sectionElem.getBoundingClientRect().top - sectionElem.offsetHeight / 2)
+    for (var i = 0; i < numSectionElems; i++) {
+      var absoluteTop = Math.floor(window.pageYOffset + sectionElems[i].getBoundingClientRect().top - sectionElems[i].offsetHeight / 2)
       sectionPositions.push(absoluteTop)
     }
     if (scrollPosCurrent < sectionPositions[1]) {

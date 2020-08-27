@@ -13,7 +13,6 @@ var reservationMobileBtn = document.querySelector('a.reservation.mobile')
 var isClicked = false
 var anchor
 var totalHeight = 0
-
 // 이벤트 위임 이용
 gnbBox.addEventListener('click', function (event) {
   if (window.innerWidth <= 850) {
@@ -68,12 +67,18 @@ function showGnb() {
   header.classList.toggle('on')
   document.body.classList.toggle('gnb-active')
 
-  if (header.className === 'on') {
+  if (header.className.indexOf('on') > 0) {
     // works for the pc version
     if (window.innerWidth > 850) {
-      header.addEventListener('transitionend', function () {
-        gnb.className = 'show'
-      })
+      if ('ontransitionend' in window) {
+        header.addEventListener('transitionend', function () {
+          gnb.className = 'show'
+        })
+      } else {
+        setTimeout(function () {
+          gnb.className = 'show'
+        }, 850)
+      }
     } else {
       reservationMobileBtn.style.zIndex = 0
     }

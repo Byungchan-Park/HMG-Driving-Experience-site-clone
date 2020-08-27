@@ -74,7 +74,8 @@ function swipeVisualSection(selector) {
 
   function handleMouseMove(e) {
     delX = e.clientX - startX
-    selector.style.left = `calc(${offsetX} + ${delX}px)`
+    var leftSum = offsetX + delX
+    selector.style.left = 'calc(' + leftSum + 'px)'
   }
   function handleMouseUp() {
     if (delX < -200) {

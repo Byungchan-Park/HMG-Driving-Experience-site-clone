@@ -46,7 +46,7 @@ function hoverEffectCanvas(e, n) {
   })
 }
 
-if (window.innerWidth > 850) {
+if (window.innerWidth > 1024 && 'requestAnimationFrame' in window) {
   hoverEffectCanvas('btnVisualPrev', 30)
   hoverEffectCanvas('btnVisualNext', 30)
   hoverEffectCanvas('btnVisualPause', 30)

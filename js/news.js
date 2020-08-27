@@ -31,10 +31,16 @@ window.addEventListener('resize', function () {
 })
 
 controlBox.addEventListener('click', function (event) {
-  var target = event.target.closest('a')
-
+  var target = (function () {
+    if (Element.prototype.closest) {
+      return event.target.closest('a')
+    } else {
+      if (event.target.parentNode.nodeName === 'A') return event.target.parentNode
+    }
+  })()
   if (!target) return
   if (!controlBox.contains(target)) return
+  console.log(target)
 
   switch (target.className) {
     case 'btnPrev':
@@ -46,7 +52,7 @@ controlBox.addEventListener('click', function (event) {
     case 'btnPause':
       handlePauseBtn()
       break
-    case 'btnPlay':
+    case 'btnPlay on':
       handlePlayBtn()
       break
   }
@@ -78,17 +84,22 @@ function handlePauseBtn() {
 
 function handlePlayBtn() {
   if (isTimerOn2 === false) {
-    playBtn.classList.remove('on')
     pauseBtn.classList.remove('off')
+    playBtn.classList.remove('on')
+    timerId2 = setInterval(function () {
+      newsCount++
+      newsCount = Math.min(newsCount, lastNewsNum)
+      if (newsCount === lastNewsNum) newsCount = 0
+      showNews()
+    }, timerSpeed2)
     isTimerOn2 = true
-    showNews()
   }
 }
 
 // for a mobile version
 // each indicator button works when clicks
 // shows each news
-for (let i = 0; i < indicator.childNodes.length; i++) {
+for (var i = 0; i < indicator.childNodes.length; i++) {
   var indicatorBtn = indicator.childNodes[i].childNodes[0]
   indicatorBtn.addEventListener('click', function (event) {
     event.preventDefault()
@@ -108,7 +119,7 @@ function showNews() {
   prevBtn.disabled = positionChange === 0
   nextBtn.disabled = positionChange === outerWidth * lastNewsNum
 
-  for (let i = 0; i < indicator.childNodes.length; i++) {
+  for (var i = 0; i < indicator.length; i++) {
     if (newsCount === i) {
       indicator.childNodes[i].className = 'active'
     } else {

@@ -113,10 +113,12 @@
   height: 0;
   overflow: hidden;
   transform: translateY(200px);
+  -ms-transform: translatey(200px);
   transition: transform 0.8s;
 }
 #header.on #gnb.show {
   transform: translateY(0);
+  -ms-transform: translateY(0);
   overflow: visible;
 }
 #gnb > nav > ul > li {

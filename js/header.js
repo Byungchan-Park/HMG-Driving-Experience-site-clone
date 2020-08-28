@@ -67,7 +67,7 @@ function showGnb() {
   header.classList.toggle('on')
   document.body.classList.toggle('gnb-active')
 
-  if (header.className.indexOf('on') > 0) {
+  if (header.className.indexOf('on') >= 0) {
     // works for the pc version
     if (window.innerWidth > 850) {
       if ('ontransitionend' in window) {

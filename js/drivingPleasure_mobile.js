@@ -1,8 +1,10 @@
 var program = document.querySelectorAll('ul.program-list li')
 var button = document.querySelectorAll('.mobileClick')
+var numPrograms = program.length
 
-for (var i = 0; i < program.length; i++) {
+for (var i = 0; i < numPrograms; i++) {
+  console.log(i)
   button[i].addEventListener('click', function () {
-    program[i].classList.toggle('active')
+    this.parentNode.classList.toggle('active')
   })
 }

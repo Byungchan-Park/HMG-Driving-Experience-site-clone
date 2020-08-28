@@ -40,7 +40,6 @@ controlBox.addEventListener('click', function (event) {
   })()
   if (!target) return
   if (!controlBox.contains(target)) return
-  console.log(target)
 
   switch (target.className) {
     case 'btnPrev':
@@ -99,14 +98,17 @@ function handlePlayBtn() {
 // for a mobile version
 // each indicator button works when clicks
 // shows each news
-for (var i = 0; i < indicator.childNodes.length; i++) {
-  var indicatorBtn = indicator.childNodes[i].childNodes[0]
-  indicatorBtn.addEventListener('click', function (event) {
-    event.preventDefault()
-    newsCount = i
-    showNews()
-  })
-}
+indicator.addEventListener('click', function (event) {
+  event.preventDefault()
+  if (event.target.tagName !== 'A') return
+  var indicatorBtn = event.target
+  for (var i = 0; i < indicator.childNodes.length; i++) {
+    if (indicatorBtn === indicator.childNodes[i].childNodes[0]) {
+      newsCount = i
+      showNews()
+    }
+  }
+})
 
 function showNews() {
   clearInterval(timerId2)
@@ -119,7 +121,7 @@ function showNews() {
   prevBtn.disabled = positionChange === 0
   nextBtn.disabled = positionChange === outerWidth * lastNewsNum
 
-  for (var i = 0; i < indicator.length; i++) {
+  for (var i = 0; i < indicator.childNodes.length; i++) {
     if (newsCount === i) {
       indicator.childNodes[i].className = 'active'
     } else {

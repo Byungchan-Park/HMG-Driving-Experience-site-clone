@@ -143,7 +143,7 @@ select {
 #footer div.inner address.companys > div + div {
   margin-top: 22px;
 }
-address.companys div.company h4.company-name {
+address.companys div.company em.company-name {
   float: left;
   width: 200px;
   font-weight: 700;

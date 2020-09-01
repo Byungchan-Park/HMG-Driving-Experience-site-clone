@@ -50,7 +50,7 @@
   font-size: 22px;
   margin-bottom: 10px;
 }
-#drivingAcademy div.program-wrapper div.program-intro h2.tit {
+#drivingAcademy div.program-wrapper div.program-intro h3.tit {
   font-size: 72px;
   margin-bottom: 20px;
 }
@@ -155,7 +155,7 @@
   #drivingAcademy div.program-wrapper div.program-intro p.ready {
     font-size: 1.5vw;
   }
-  #drivingAcademy div.program-wrapper div.program-intro h2.tit {
+  #drivingAcademy div.program-wrapper div.program-intro h3.tit {
     font-size: 5vw;
   }
   #drivingAcademy div.program-wrapper div.program-intro p.desc {

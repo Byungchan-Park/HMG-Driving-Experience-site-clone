@@ -12,7 +12,7 @@
   color: #222;
   font-weight: 400;
 }
-#introduction div.program-info h2 {
+#introduction div.program-info h3 {
   font-size: 72px;
   color: rgb(34, 34, 34);
   line-height: 1.1;
@@ -48,7 +48,7 @@
   #introduction div.program-info p.about {
     font-size: 1.5vw;
   }
-  #introduction div.program-info h2 {
+  #introduction div.program-info h3 {
     font-size: 5vw;
   }
   #introduction div.program-info p.desc {

@@ -568,7 +568,7 @@ a.btnMotion.play .icon-pause {
   color: #222;
   font-weight: 400;
 }
-#introduction div.program-info h2 {
+#introduction div.program-info h3 {
   font-size: 36px;
   color: rgb(34, 34, 34);
   line-height: 1;
@@ -654,7 +654,7 @@ a.btnMotion.play .icon-pause {
   font-size: 16px;
   margin-bottom: 10px;
 }
-#drivingAcademy div.program-wrapper div.program-intro h2.tit {
+#drivingAcademy div.program-wrapper div.program-intro h3.tit {
   font-size: 36px;
   margin-bottom: 16px;
 }
@@ -793,7 +793,7 @@ a.btnMotion.play .icon-pause {
   font-size: 16px;
   margin-bottom: 10px;
 }
-#drivingPleasure div.program-wrapper div.program-intro h2.tit {
+#drivingPleasure div.program-wrapper div.program-intro h3.tit {
   font-size: 36px;
   line-height: 1;
   margin-bottom: 17px;
@@ -997,7 +997,7 @@ a.btnMotion.play .icon-pause {
 #nFestival div.festival-wrapper div.festival-info p.enjoy {
   font-size: 16px;
 }
-#nFestival div.festival-wrapper div.festival-info h2.tit {
+#nFestival div.festival-wrapper div.festival-info h3.tit {
   font-size: 36px;
   line-height: 1;
   margin-top: 12px;

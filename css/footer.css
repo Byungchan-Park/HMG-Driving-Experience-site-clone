@@ -95,9 +95,9 @@ select {
   -webkit-appearance: none; /* 네이티브 외형 감추기 */
   -moz-appearance: none;
   appearance: none;
-  outline: none;
   font-size: 18px;
 }
+select::-ms-expand {display:none}
 
 #footer div.inner div.siteArea ul.snsCont {
   margin-top: 30px;

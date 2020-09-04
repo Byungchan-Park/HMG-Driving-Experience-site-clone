@@ -259,18 +259,18 @@ body.gnb-active {
   height: 11px;
   background: url(../images/sp-hmg-mobile-basic-small.png) no-repeat -275px 0 / 300px 250px;
 }
-#gnb > nav > ul > li > a + ul {
+#gnb > nav > ul > li > a ~ ul {
   margin-top: 10px;
   padding: 20px 20px 35px;
   background: #000000b3;
 }
-#gnb > nav > ul > li > a + ul li a {
+#gnb > nav > ul > li > a ~ ul li a {
   display: block;
   padding: 19px 18px 19px 0;
   position: relative;
   border-bottom: 1px solid #999999;
 }
-#gnb > nav > ul > li > a + ul li > a span {
+#gnb > nav > ul > li > a ~ ul li > a span {
   font-size: 15px;
 }
 #gnb > ul {
@@ -1221,6 +1221,7 @@ select {
   appearance: none;
   font-size: 18px;
 }
+select::-ms-expand {display:none}
 
 #footer div.inner div.siteArea ul.snsCont {
   margin-top: 20px;

@@ -1,15 +1,8 @@
 var anchor = document.getElementsByTagName('a')
 
-for (var i = 0; i < anchor.length; i++) {
-  anchor[i].addEventListener('click', function (event) {
-    preventEventAnchor(event)
-  })
-}
-
 function preventEventAnchor(event) {
   event.preventDefault()
 }
-
 function makeIndicator(selector, count) {
   for (var i = 0; i < count; i++) {
     var li = document.createElement('li')
@@ -22,3 +15,11 @@ function makeIndicator(selector, count) {
     selector.appendChild(li)
   }
 }
+
+for (var i = 0; i < anchor.length; i++) {
+  anchor[i].addEventListener('click', function (event) {
+    preventEventAnchor(event)
+  })
+}
+
+
